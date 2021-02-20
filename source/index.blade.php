@@ -2,7 +2,7 @@
 
 @section('header')
     <div class="px-6 pb-32 md:pb-64">
-        <div class="max-w-4xl mx-auto text-center space-y-6 lg:space-y-12">
+        <div class="max-w-screen-lg mx-auto text-center space-y-6 lg:space-y-12">
             <h1 class="text-primary-700 text-4xl md:text-5xl lg:text-6xl xl:text-7xl">{{ $page->siteDescription }}</h1>
             <div class="max-w-prose mx-auto">
                 <p class="text-lg md:text-xl">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -20,7 +20,7 @@
 
 @section('main')
     <div class="px-6 space-y-12 md:space-y-24">
-        <section aria-label="Filament video walkthrough" class="max-w-screen-lg mx-auto -mt-20 md:-mt-44">
+        <section aria-label="Filament video walkthrough" class="max-w-screen-xl mx-auto -mt-20 md:-mt-44">
             <div 
                 x-data="{ playing: false }"
                 x-init="$watch('playing', value => {
@@ -42,7 +42,7 @@
                     <source src="/assets/media/fpo-screen-recording.mp4" type="video/mp4">
                 </video>
                 <button 
-                    class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center text-primary-700 hover:text-primary-500 transition-colors duration-200"
+                    class="absolute inset-0 rounded md:rounded-lg bg-black bg-opacity-20 flex items-center justify-center text-primary-700 hover:text-primary-500 transition-colors duration-200"
                     x-show="playing === false"
                     @click="playing = true"
                 >
