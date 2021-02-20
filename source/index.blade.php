@@ -19,5 +19,44 @@
 @endsection
 
 @section('main')
-    Main content...
+    <div class="px-6 space-y-12 md:space-y-24">
+        <section aria-label="Filament video walkthrough" class="max-w-screen-lg mx-auto -mt-20 md:-mt-44">
+            <div 
+                x-data="{ playing: false }"
+                x-init="$watch('playing', value => {
+                    if (value === true) {
+                        $refs.video.play()
+                    } else {
+                        $refs.video.pause()
+                    }
+                    
+                })"
+                class="relative bg-gray-900 rounded md:rounded-lg overflow-hidden shadow-lg"
+            >
+                <video 
+                    muted
+                    loop
+                    x-ref="video"
+                    @click="playing = false"
+                >
+                    <source src="/assets/media/fpo-screen-recording.mp4" type="video/mp4">
+                </video>
+                <button 
+                    class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center text-primary-700 hover:text-primary-500 transition-colors duration-200"
+                    x-show="playing === false"
+                    @click="playing = true"
+                >
+                    <span>
+                        <span class="sr-only">Play Video</span>
+                        <span class="bg-white rounded-full w-24 h-24 shadow-lg flex items-center justify-center">
+                            <x-icon-play class="w-10 h-10" />
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </section>
+        <section aria-labelledby="heading-resources">
+            
+        </section>
+    </div>
 @endsection

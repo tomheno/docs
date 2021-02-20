@@ -25,9 +25,7 @@
         </nav>
         @yield('header')
     </header>
-    <main id="main" class="px-6 py-12">
-        <div class="container">
-            @yield('main')
-        </div>
+    <main id="main">
+        @yield('main')
     </main>
 @endsection
