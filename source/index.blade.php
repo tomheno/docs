@@ -19,7 +19,7 @@
 @endsection
 
 @section('main')
-    <div class="px-6 space-y-12 md:space-y-24">
+    <div class="px-6 py-12 md:py-24 space-y-12 md:space-y-24">
         <section aria-label="Filament video walkthrough" class="max-w-screen-xl mx-auto -mt-20 md:-mt-44">
             <div 
                 x-data="{ playing: false }"
@@ -55,8 +55,15 @@
                 </button>
             </div>
         </section>
-        <section aria-labelledby="heading-resources">
-            
+        <section aria-labelledby="heading-resources" class="px-6">
+            <div class="max-w-screen-lg mx-auto space-y-12">
+                <div class="text-center space-y-6">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Resources</h2>
+                    <div class="max-w-prose mx-auto">
+                        <p class="sm:text-lg md:text-xl text-secondary-200">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 @endsection
