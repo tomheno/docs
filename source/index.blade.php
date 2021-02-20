@@ -71,7 +71,7 @@
                             <img src="/assets/media/resource-table@2x.jpg" alt="Resource table" />
                         </div>
                         <div>
-                            <div class="relative p-4 md:p-8 bg-gray-800 rounded-lg shadow-lg md:max-w-prose mx-auto xl:-mt-44 xl:max-h-80 overflow-auto">
+                            <div class="relative p-4 md:p-8 bg-gray-800 rounded-lg shadow-lg md:max-w-prose mx-auto xl:-mt-44">
 <pre class="line-numbers"><code class="language-php">public static function columns()
 {
     return [
