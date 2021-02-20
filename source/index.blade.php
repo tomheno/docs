@@ -2,10 +2,10 @@
 
 @section('header')
     <div class="px-6 pb-32 md:pb-64">
-        <div class="max-w-screen-lg mx-auto text-center space-y-6 lg:space-y-12">
+        <div class="max-w-screen-lg mx-auto text-center space-y-5 lg:space-y-10">
             <h1 class="text-primary-700 text-4xl md:text-5xl lg:text-6xl xl:text-7xl">{{ $page->siteDescription }}</h1>
             <div class="max-w-prose mx-auto">
-                <p class="text-lg md:text-xl">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                <p class="sm:text-lg md:text-xl">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
             </div>
             <div x-data="{ input: '{{ $page->packageInstallCommand }}' }">
                 <button type="button" @click="$clipboard(input)" class="py-3 px-6 rounded bg-gray-700 text-gray-400 text-sm md:text-base inline-flex items-center space-x-4 group">
