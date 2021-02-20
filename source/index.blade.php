@@ -71,8 +71,8 @@
                             <img src="/assets/media/resource-table@2x.jpg" alt="Resource table" />
                         </div>
                         <div>
-                            <div class="relative p-4 md:p-8 bg-gray-800 rounded-lg shadow-lg md:max-w-prose mx-auto xl:-mt-44">
-<pre class="line-numbers"><code class="language-php">public static function columns()
+                            <x-code-block class="md:max-w-prose mx-auto xl:-mt-44">
+static function columns()
 {
     return [
         Columns\Text::make('title')
@@ -90,8 +90,8 @@
             ->searchable()
             ->url(fn($customer) => "tel:$customer->tel"),
     ];
-}</code></pre>
-                            </div>
+}
+                            </x-code-block>
                         </div>
                     </div>
                 </article>
