@@ -41,12 +41,12 @@ module.exports = {
         'screen-16/9': '56.25vh',
       },
     },
-    container: {
-      center: true,
-    },
   },
   variants: {
     extend: {},
+  },
+  corePlugins: {
+    container: false,
   },
   plugins: [require('@tailwindcss/typography')],
 }
