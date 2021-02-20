@@ -14,7 +14,7 @@
 
 @section('main')
     <div class="px-6 py-12 md:py-24 space-y-12 md:space-y-24">
-        <section aria-label="Filament video walkthrough" class="max-w-screen-lg mx-auto -mt-20 md:-mt-44">
+        <section aria-label="Filament video walkthrough" class="max-w-screen-lg mx-auto -mt-32 md:-mt-56">
             <div 
                 x-data="{ playing: false }"
                 x-init="$watch('playing', value => {
@@ -71,7 +71,7 @@
                             <img src="/assets/media/resource-table@2x.jpg" alt="Resource table" />
                         </div>
                         <div>
-                            <div class="relative p-4 md:p-8 bg-gray-800 rounded-lg shadow-lg md:max-w-prose mx-auto md:-mt-44 max-h-80 overflow-auto">
+                            <div class="relative p-4 md:p-8 bg-gray-800 rounded-lg shadow-lg md:max-w-prose mx-auto xl:-mt-44 xl:max-h-80 overflow-auto">
 <pre class="line-numbers"><code class="language-php">public static function columns()
 {
     return [
