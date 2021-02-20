@@ -6,6 +6,5 @@ return [
     'siteName' => 'Filament',
     'siteDescription' => 'The elegant TALL stack admin for Laravel artisans.',
     'projectUrl' => 'https://github.com/laravel-filament/filament',
-    'packageInstallCommand' => 'composer require filament/filament',
     'collections' => [],
 ];

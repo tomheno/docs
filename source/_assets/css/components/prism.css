@@ -5,7 +5,7 @@
 /* Base */
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-left whitespace-pre font-mono text-base leading-normal text-white bg-none;
+  @apply text-left whitespace-pre-wrap font-mono leading-normal text-white bg-none;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -18,10 +18,12 @@ pre[class*='language-'] {
   @apply overflow-auto;
 }
 
+/*
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
   @apply bg-gray-700;
 }
+*/
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {

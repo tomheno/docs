@@ -37,9 +37,6 @@ module.exports = {
         success: colors.emerald,
         danger: colors.red,
       },
-      minHeight: {
-        'screen-16/9': '56.25vh',
-      },
     },
   },
   variants: {
