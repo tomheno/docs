@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ $page->language ?? 'en' }}" class="bg-secondary-900">
+<html lang="{{ $page->language ?? 'en' }}" class="bg-gray-800">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

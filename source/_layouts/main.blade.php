@@ -11,7 +11,6 @@
                         <x-logo :alt="$page->siteName" class="w-36 h-auto" />
                     </a>
                 </li>
-                <li><a href="#" class="hover:text-primary-700 transition-colors duration-200">Documentation</a></li>
                 <li>
                     <a 
                         href="{{ $page->projectUrl }}" 
@@ -22,6 +21,7 @@
                         <x-icon-github class="w-7 h-7" />
                     </a>
                 </li>
+                <li><a href="#" class="font-mono hover:text-primary-700 transition-colors duration-200">Documentation</a></li>
             </ol>
         </nav>
         <div class="relative">
