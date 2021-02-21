@@ -7,14 +7,14 @@
             <div class="max-w-prose mx-auto">
                 <p class="sm:text-lg md:text-xl">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
             </div>
-            <x-button-copy-command command="composer require filament/filament" />
+            <x-button-command command="composer require filament/filament" />
         </div>
     </div>
 @endsection
 
 @section('main')
     <div class="px-6 py-12 md:py-24 space-y-12 md:space-y-24">
-        <section aria-label="Filament video walkthrough" class="max-w-screen-lg mx-auto -mt-32 md:-mt-56">
+        <section aria-label="Filament walkthrough" class="max-w-screen-lg mx-auto -mt-32 md:-mt-56">
             <div 
                 x-data="{ playing: false }"
                 x-init="$watch('playing', value => {
@@ -50,51 +50,76 @@
             </div>
         </section>
         <section aria-labelledby="heading-resources" class="px-6">
-            <div class="max-w-screen-xl mx-auto space-y-12 lg:space-y-24">
-                <div class="text-center space-y-6">
+            <div class="max-w-screen-xl mx-auto space-y-12 lg:space-y-24 xl:space-y-32">
+                <div class="text-center space-y-8">
                     <h2 id="heading-resources" class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Resources</h2>
                     <div class="max-w-prose mx-auto">
-                        <p class="sm:text-lg md:text-xl text-secondary-200">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                        <p class="sm:text-lg md:text-xl">Resources are the core of Filament, allowing your to define common features of your data model all in one place.</p>
                     </div>
-                    <x-button-copy-command command="php artisan make:filament-resource Customer" />
+                    <x-button-command command="php artisan make:filament-resource Customer" />
                 </div>
-                <article aria-labelledby="heading-resource-tables" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-12">
-                    <div class="col-span-1 space-y-4">
-                        <h3 class="text-lg md:text-xl lg:text-2xl xl:text-3xl">Tables</h3>
-                        <div class="space-y-4">
-                            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-                            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-                        </div>
-                    </div>
-                    <div class="col-span-1 xl:col-span-2 space-y-4">
-                        <div class="rounded-lg shadow-lg overflow-hidden">
-                            <img src="/assets/media/resource-table@2x.jpg" alt="Resource table" />
-                        </div>
-                        <div>
-                            <x-code-block class="md:max-w-prose mx-auto xl:-mt-44">
-static function columns()
-{
-    return [
-        Columns\Text::make('title')
-            ->sortable()
-            ->options(static::$titleOptions),
-        Columns\Text::make('name')
-            ->searchable()
-            ->sortable()
-            ->primary(),
-        Columns\Text::make('email')
-            ->searchable()
-            ->sortable()
-            ->url(fn($customer) => "mailto:$customer->email"),
-        Columns\Text::make('phone')
-            ->searchable()
-            ->url(fn($customer) => "tel:$customer->tel"),
-    ];
-}
-                            </x-code-block>
-                        </div>
-                    </div>
-                </article>
+                <x-feature 
+                    title="Tables" 
+                    :image="[
+                        'src' => '/assets/media/resource-table@2x.jpg', 
+                        'alt' => 'Resource Page Index Table'
+                    ]"
+                >
+<x-slot name="code">
+    public static function table($table)
+    {
+        return $table
+            ->columns([
+                Tables\Columns\Text::make('title')
+                    ->sortable()
+                    ->options(static::$titleOptions),
+            ])
+            ->filters([
+                Tables\Filter::make('Title'),
+            ]);
+    }
+</x-slot>
+
+                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                </x-feature>
+
+                <x-feature 
+                    reverse
+                    title="Forms" 
+                    :image="[
+                        'src' => '/assets/media/resource-table@2x.jpg', 
+                        'alt' => 'Resource Page Index Table'
+                    ]"
+                >
+<x-slot name="code">
+    public static function form($form)
+    {
+        return $form
+            ->schema([
+                Forms\Components\Text::make('name'),
+            ]);
+    }
+</x-slot>
+
+                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                </x-feature>
+
+                <x-feature 
+                    title="Permissions" 
+                    :image="[
+                        'src' => '/assets/media/resource-table@2x.jpg', 
+                        'alt' => 'Resource Page Index Table'
+                    ]"
+                >
+<x-slot name="code">
+    // need permissions code snippet...
+</x-slot>
+
+                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                </x-feature>
             </div>   
         </section>
     </div>

@@ -1,71 +1,63 @@
-/* purgecss ignore */
+/* purgecss start ignore */
 
-/* PrismJS 1.23.0 */
-
-/* Base */
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-left whitespace-pre-wrap font-mono leading-normal text-white bg-none;
+  color: #fff;
+  background: none;
+  text-align: left;
+  white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  line-height: 1.5;
   tab-size: 4;
   hyphens: none;
 }
 
 /* Code blocks */
 pre[class*='language-'] {
-  @apply overflow-auto;
+  overflow: auto;
 }
-
-/*
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
-  @apply bg-gray-700;
-}
-*/
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {
-  @apply rounded;
   white-space: normal;
 }
 
-/* Tokens */
 .token.comment,
 .token.block-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  @apply text-gray-400;
+  color: #999;
 }
 
 .token.punctuation {
-  @apply text-gray-200;
+  color: #ccc;
 }
 
 .token.tag,
 .token.attr-name,
 .token.namespace,
 .token.deleted {
-  @apply text-red-300;
+  color: #e2777a;
 }
 
 .token.function-name {
-  @apply text-blue-400;
+  color: #6196cc;
 }
 
 .token.boolean,
 .token.number,
 .token.function {
-  @apply text-primary-500;
+  color: #f08d49;
 }
 
 .token.property,
 .token.class-name,
 .token.constant,
 .token.symbol {
-  @apply text-yellow-300;
+  color: #f8c555;
 }
 
 .token.selector,
@@ -73,7 +65,7 @@ pre[class*='language-'] {
 .token.atrule,
 .token.keyword,
 .token.builtin {
-  @apply text-purple-400;
+  color: #cc99cd;
 }
 
 .token.string,
@@ -81,28 +73,138 @@ pre[class*='language-'] {
 .token.attr-value,
 .token.regex,
 .token.variable {
-  @apply text-green-300;
+  color: #7ec699;
 }
 
 .token.operator,
 .token.entity,
 .token.url {
-  @apply text-green-400;
+  color: #67cdcc;
 }
 
 .token.important,
 .token.bold {
-  @apply font-bold;
+  font-weight: bold;
 }
-
 .token.italic {
   font-style: italic;
 }
 
 .token.entity {
-  @apply cursor-help;
+  cursor: help;
 }
 
 .token.inserted {
-  @apply text-green-700;
+  color: green;
 }
+
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 0.975em;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+@media print {
+  .line-highlight {
+    color-adjust: exact;
+  }
+}
+
+.line-highlight:before,
+.line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: 0.4em;
+  left: 0.6em;
+  min-width: 1em;
+  padding: 0 0.5em;
+  background-color: hsla(24, 20%, 50%, 0.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: 0.3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+.line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: 0.4em;
+}
+
+.line-numbers .line-highlight:before,
+.line-numbers .line-highlight:after {
+  content: none;
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows {
+  pointer-events: all;
+}
+pre[id].linkable-line-numbers span.line-numbers-rows > span:before {
+  cursor: pointer;
+}
+pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+pre[class*='language-'].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*='language-'].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #999;
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #999;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+/* Fallback, in case JS does not run, to ensure the code is at least visible */
+[class*='lang-'] script[type='text/plain'],
+[class*='language-'] script[type='text/plain'],
+script[type='text/plain'][class*='lang-'],
+script[type='text/plain'][class*='language-'] {
+  display: block;
+  font: 100% Consolas, Monaco, monospace;
+  white-space: pre;
+  overflow: auto;
+}
+
+/* purgecss end ignore */
