@@ -26,7 +26,7 @@
     <button 
         type="button" 
         @click="$clipboard($refs.command.value)" 
-        class="absolute right-4 top-4 text-gray-400 hover:text-white"
+        class="absolute right-4 top-4 text-gray-500 hover:text-white"
     >
         <span class="sr-only">Click to copy code to clipboard</span>
         <x-icon-copy class="w-5 h-5" aria-hidden="true" />

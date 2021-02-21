@@ -54,7 +54,7 @@
                 <div class="text-center space-y-8">
                     <h2 id="heading-resources" class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Resources</h2>
                     <div class="max-w-prose mx-auto">
-                        <p class="sm:text-lg md:text-xl">Resources are the core of Filament, allowing your to define common features of your data model all in one place.</p>
+                        <p class="sm:text-lg md:text-xl">Resources are the core of Filament, allowing you to define common features of your data model and associated permissions all in one place.</p>
                     </div>
                     <x-button-command command="php artisan make:filament-resource Customer" />
                 </div>
@@ -88,8 +88,8 @@
                     reverse
                     title="Forms" 
                     :image="[
-                        'src' => '/assets/media/resource-table@2x.jpg', 
-                        'alt' => 'Resource Page Index Table'
+                        'src' => '/assets/media/resource-form@2x.jpg', 
+                        'alt' => 'Resource Edit Form'
                     ]"
                 >
 <x-slot name="code">
@@ -97,7 +97,12 @@
     {
         return $form
             ->schema([
-                Forms\Components\Text::make('name'),
+                Forms\Components\Select::make('customer_id')
+                    ->relation('customer.name')
+                    ->placeholder('Select a customer')
+                    ->required(),
+                Forms\Components\Relation::make('products')
+                    ->manager(RelationManagers\ProductsRelationManager::class),
             ]);
     }
 </x-slot>
@@ -109,12 +114,18 @@
                 <x-feature 
                     title="Permissions" 
                     :image="[
-                        'src' => '/assets/media/resource-table@2x.jpg', 
+                        'src' => '/assets/media/resource-permissions@2x.jpg', 
                         'alt' => 'Resource Page Index Table'
                     ]"
                 >
 <x-slot name="code">
-    // need permissions code snippet...
+    public static function authorization()
+    {
+        return [
+            Roles\Guest::allow()->only(Pages\ListCustomers::class),
+            Roles\Admin::allow(),
+        ];
+    }
 </x-slot>
 
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
