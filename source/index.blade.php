@@ -37,7 +37,7 @@
                         <source src="/assets/media/fpo-screen-recording.mp4" type="video/mp4">
                     </video>
                     <button 
-                        class="absolute inset-0 rounded md:rounded-lg bg-black bg-opacity-20 flex items-center justify-center text-primary-700 hover:text-primary-500 transition-colors duration-200"
+                        class="absolute inset-0 rounded md:rounded-lg bg-gray-900 bg-opacity-20 flex items-center justify-center text-primary-700 hover:text-primary-500 transition-colors duration-200"
                         x-show="playing === false"
                         @click="playing = true"
                     >
