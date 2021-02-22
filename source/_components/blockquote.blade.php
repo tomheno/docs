@@ -26,7 +26,7 @@
                 </div>
                 <span class="flex flex-col">
                     <span class="text-lg leading-tight">{{ $source }}</span>
-                    <span class="text-secondary-800 group-hover:text-primary-500 transition-colors duration-200">{{ '@'.$twitterHandle }}</span>
+                    <span class="text-secondary-700 group-hover:text-primary-500 transition-colors duration-200">{{ '@'.$twitterHandle }}</span>
                 </span>
             </a>
         </cite>

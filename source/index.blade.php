@@ -151,4 +151,22 @@
             />
         </div>
     </section>
+    <section aria-labelledby="heading-authors" class="bg-white text-gray-700 px-6 py-12 md:py-24">
+        <div class="max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
+            <h2 id="heading-authors" class="text-center lg:text-left text-primary-700 text-3xl lg:text-4xl">Design &amp; development by</h2>
+            <div class="lg:col-span-2 grid grid-cols-2 gap-8 md:gap-16">
+                <x-author
+                    name="Dan Harrin"
+                    avatar-url="https://avatars.githubusercontent.com/u/41773797?s=128&u=2ec7b5195d66c092c3c8cb66e5123b0ca9ccafd5&v=4"
+                    twitter-handle="danharrin"
+                />
+
+                <x-author
+                    name="Ryan Scherler"
+                    avatar-url="https://avatars.githubusercontent.com/u/881938?s=128&u=123ef56aaf15f3c02fc8b6669db8f64254cb1610&v=4"
+                    twitter-handle="ryanscherler"
+                />
+            </div>
+        </div>
+    </section>
 @endsection
