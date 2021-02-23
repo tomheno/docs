@@ -2,9 +2,9 @@
 
 @section('header')
     <div class="px-6 pb-32 md:pb-64">
-        <div class="max-w-screen-lg mx-auto text-center space-y-5 lg:space-y-10">
-            <h1 class="text-primary-700 text-4xl md:text-5xl lg:text-6xl xl:text-7xl">{{ $page->siteDescription }}</h1>
-            <div class="max-w-prose mx-auto">
+        <div class="max-w-screen-lg mx-auto space-y-5 text-center lg:space-y-10">
+            <h1 class="text-4xl text-primary-700 md:text-5xl lg:text-6xl xl:text-7xl">{{ $page->siteDescription }}</h1>
+            <div class="mx-auto max-w-prose">
                 <p class="sm:text-lg md:text-xl">Filament is a content management framework for rapidly building a beautiful administration interface designed for humans.</p>
             </div>
             <x-button-command command="composer require filament/filament" />
@@ -13,7 +13,7 @@
 @endsection
 
 @section('main')
-    <div class="py-12 md:py-24 lg:py-32 bg-secondary-900 space-y-12 md:space-y-24">
+    <div class="py-12 space-y-12 md:py-24 lg:py-32 bg-secondary-900 md:space-y-24">
         <section aria-label="Filament walkthrough" class="px-6">
             <div class="max-w-screen-lg mx-auto -mt-32 md:-mt-56 lg:-mt-80">
                 <div 
@@ -26,7 +26,7 @@
                         }
                         
                     })"
-                    class="relative bg-gray-900 rounded md:rounded-lg overflow-hidden shadow-lg"
+                    class="relative overflow-hidden bg-gray-900 rounded shadow-lg md:rounded-lg"
                 >
                     <video 
                         muted
@@ -37,13 +37,13 @@
                         <source src="/assets/media/fpo-screen-recording.mp4" type="video/mp4">
                     </video>
                     <button 
-                        class="absolute inset-0 rounded md:rounded-lg bg-gray-900 bg-opacity-20 flex items-center justify-center text-primary-700 hover:text-primary-500 transition-colors duration-200"
+                        class="absolute inset-0 flex items-center justify-center transition-colors duration-200 bg-gray-900 rounded md:rounded-lg bg-opacity-20 text-primary-700 hover:text-primary-500"
                         x-show="playing === false"
                         @click="playing = true"
                     >
                         <span>
                             <span class="sr-only">Play Video</span>
-                            <span class="bg-white rounded-full w-24 h-24 shadow-lg flex items-center justify-center">
+                            <span class="flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg">
                                 <x-icon-play class="w-10 h-10" />
                             </span>
                         </span>
@@ -53,10 +53,10 @@
         </section>
         <section aria-labelledby="heading-resources" class="px-6">
             <div class="max-w-screen-xl mx-auto space-y-12 lg:space-y-24 xl:space-y-32">
-                <div class="text-center space-y-6">
+                <div class="space-y-6 text-center">
                     <h2 id="heading-resources" class="text-3xl lg:text-4xl xl:text-5xl">Resourceful by design.</h2>
                     <div class="space-y-8">
-                        <div class="max-w-prose mx-auto">
+                        <div class="mx-auto max-w-prose">
                             <p class="sm:text-lg md:text-xl">Resource files tell Filament about how administrators will interact with your data. They provide a simple API to structure interactive tables, define complex forms and set up granular permissions for your users.</p>
                         </div>
                         <x-button-command command="php artisan make:filament-resource Customer" />
@@ -70,18 +70,18 @@
                     ]"
                 >
 <x-slot name="code">
-    public static function table($table)
-    {
-        return $table
-            ->columns([
-                Tables\Columns\Text::make('title')
-                    ->sortable()
-                    ->options(static::$titleOptions),
-            ])
-            ->filters([
-                Tables\Filter::make('Title'),
-            ]);
-    }
+public static function table($table)
+{
+    return $table
+        ->columns([
+            Tables\Columns\Text::make('title')
+                ->sortable()
+                ->options(static::$titleOptions),
+        ])
+        ->filters([
+            Tables\Filter::make('Title'),
+        ]);
+}
 </x-slot>
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -95,18 +95,18 @@
                     ]"
                 >
 <x-slot name="code">
-    public static function form($form)
-    {
-        return $form
-            ->schema([
-                Forms\Components\Select::make('customer_id')
-                    ->relation('customer.name')
-                    ->placeholder('Select a customer')
-                    ->required(),
-                Forms\Components\Relation::make('products')
-                    ->manager(RelationManagers\ProductsRelationManager::class),
-            ]);
-    }
+public static function form($form)
+{
+    return $form
+        ->schema([
+            Forms\Components\Select::make('customer_id')
+                ->relation('customer.name')
+                ->placeholder('Select a customer')
+                ->required(),
+            Forms\Components\Relation::make('products')
+                ->manager(RelationManagers\ProductsRelationManager::class),
+        ]);
+}
 </x-slot>
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -120,13 +120,13 @@
                     ]"
                 >
 <x-slot name="code">
-    public static function authorization()
-    {
-        return [
-            Roles\Guest::allow()->only(Pages\ListCustomers::class),
-            Roles\Admin::allow(),
-        ];
-    }
+public static function authorization()
+{
+    return [
+        Roles\Guest::allow()->only(Pages\ListCustomers::class),
+        Roles\Admin::allow(),
+    ];
+}
 </x-slot>
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -135,7 +135,7 @@
         </section>
     </div>
     <section aria-label="Testimonials" class="px-6 py-12 md:py-24 lg:py-32">
-        <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
             <x-blockquote 
                 quote="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
                 source="Ryan Chandler" 
@@ -151,10 +151,10 @@
             />
         </div>
     </section>
-    <section aria-labelledby="heading-authors" class="bg-white text-gray-700 px-6 py-12 md:py-24">
-        <div class="max-w-screen-lg mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
-            <h2 id="heading-authors" class="text-center lg:text-left text-primary-700 text-3xl lg:text-4xl">Design &amp; development by</h2>
-            <div class="lg:col-span-2 grid grid-cols-2 gap-8 md:gap-16">
+    <section aria-labelledby="heading-authors" class="px-6 py-12 text-gray-700 bg-white md:py-24">
+        <div class="grid max-w-screen-lg grid-cols-1 gap-6 mx-auto lg:grid-cols-3 lg:gap-12">
+            <h2 id="heading-authors" class="text-3xl text-center lg:text-left text-primary-700 lg:text-4xl">Design &amp; development by</h2>
+            <div class="grid grid-cols-2 gap-8 lg:col-span-2 md:gap-16">
                 <x-author
                     name="Dan Harrin"
                     avatar-url="https://avatars.githubusercontent.com/u/41773797?s=128&u=2ec7b5195d66c092c3c8cb66e5123b0ca9ccafd5&v=4"
