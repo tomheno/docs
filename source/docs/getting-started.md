@@ -12,13 +12,14 @@ section: content
 Installation is very simple:
 ```
 composer require filament/filament
+php artisan migrate
 ```
 
 Create a user account for your admin panel by running
 ```
 php artisan make:filament-user
 ```
-and answering the prompts.
+and answering the input prompts.
 
 Once you have a user account, you can sign in to the admin panel by visiting `/admin` in your browser.
 
