@@ -1,0 +1,479 @@
+---
+title: Building Forms
+description:
+extends: _layouts.documentation
+section: content
+---
+
+# Building Forms
+
+- [Getting Started](#getting-started)
+- [Fields](#fields)
+  - [Checkbox](#fields-checkbox)
+  - [Date Picker](#fields-date-picker)
+  - [Date-time Picker](#fields-date-time-picker)
+  - [File Upload](#fields-file-upload)
+  - [Rich Editor](#fields-rich-editor)
+    - [Toolbar Buttons](#fields-rich-editor-toolbar-buttons)
+  - [Select](#fields-select)
+  - [Tags Input](#fields-tags-input)
+  - [Textarea](#fields-textarea)
+  - [Text Input](#fields-text-input)
+- [Validation](#validation)
+- [Layout](#layout)
+  - [Grid](#layout-grid)
+  - [Sections](#layout-sections)
+  - [Fieldset](#layout-fieldset)
+  - [Tabs](#layout-tabs)
+- [Context Customization](#context-customization)
+
+## Getting Started {#getting-started}
+
+Filament comes with a powerful form builder which can be used to create intuitive, dynamic, and contextual forms in the admin panel.
+
+Forms have a schema, which is an array that contains many form components. The schema defines the form's [fields](#fields), their [validation rules](#validation), and their [layout](#layout) in the form.
+
+Here is an example form configuration for a `CustomerResource`:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            Components\TextInput::make('name')->autofocus()->required(),
+            Components\TextInput::make('email')->email()->required(),
+            Components\Select::make('type')
+                ->placeholder('Select a type')
+                ->options([
+                    'individual' => 'Individual',
+                    'organization' => 'Organization',
+                ]),
+            Components\DatePicker::make('birthday'),
+        ])
+        ->columns(2);
+}
+```
+
+## Fields {#fields}
+
+Resource field classes are located in the `Filament\Resources\Forms\Components` namespace.
+
+All field components have access to the following customization methods:
+
+```php
+Field::make($name)
+    ->columnSpan($span = 1) // On large devices, this sets the number of columns that the field should span in the form.
+    ->default($default) // Sets the default value for this field.
+    ->disabled($disabled = false) // Make the field read-only.
+    ->id($id) // Set the HTML ID of the field, which is otherwise automatically generated based on its name.
+    ->label($label); // Set custom label text for with the field, which is otherwise automatically generated based on its name. It supports localization strings.
+```
+
+### Checkbox {#fields-checkbox}
+
+```php
+Checkbox::make($name)
+    ->autofocus(); // Autofocus the field.
+```
+
+### Date Picker {#fields-date-picker}
+
+```php
+DatePicker::make($name)
+    ->autofocus() // Autofocus the field.
+    ->displayFormat($format = 'F j, Y') // Set the display format of the field, using PHP date formatting tokens.
+    ->format($format = 'Y-m-d') // Set the storage format of the field, using PHP date formatting tokens.
+    ->maxDate($date) // Set the maximum date that can be selected.
+    ->minDate($date) // Set the minimum date that can be selected.
+    ->placeholder($placeholder); // Set the placeholder for when the field is empty. It supports localization strings.
+```
+
+### Date-time Picker {#fields-date-time-picker}
+
+```php
+DateTimePicker::make($name)
+    ->autofocus() // Autofocus the field.
+    ->displayFormat($format = 'F j, Y H:i:s') // Set the display format of the field, using PHP date formatting tokens.
+    ->format($format = 'Y-m-d H:i:s') // Set the storage format of the field, using PHP date formatting tokens.
+    ->maxDate($date) // Set the maximum date that can be selected.
+    ->minDate($date) // Set the minimum date that can be selected.
+    ->placeholder($placeholder) // Set the placeholder for when the field is empty. It supports localization strings.
+    ->withoutSeconds(); // Hide the seconds input.
+```
+
+### File Upload {#fields-file-upload}
+
+```php
+FileUpload::make($name)
+    ->acceptedFileTypes($types = []) // Limit the type of files that can be uploaded using an array of mime types.
+    ->avatar() // Make the field suitable for uploading and displaying a circular avatar.
+    ->disk($disk) // Set a custom disk that uploaded files should be read from and written to.
+    ->directory($directory) // Set a custom directory that uploaded files should be written to.
+    ->image() // Allow only images to be uploaded.
+    ->imageCropAspectRatio($ratio) // Crop images to this certain aspect ratio when they are uploaded, e.g: '1:1'.
+    ->imagePreviewHeight($height) // Set the height of the image preview in pixels.
+    ->imageResizeTargetHeight($height) // Resize images to this height (in pixels) when they are uploaded.
+    ->imageResizeTargetWidth($width) // Resize images to this width (in pixels) when they are uploaded.
+    ->loadingIndicatorPosition($position = 'right') // Set the position of the loading indicator.
+    ->maxSize($size) // Set the maximum size of files that can be uploaded, in kilobytes.
+    ->minSize($size) // Set the minimum size of files that can be uploaded, in kilobytes.
+    ->panelAspectRatio($ratio) // Set the aspect ratio of the panel, e.g: '1:1'.
+    ->panelLayout($layout) // Set the layout of the panel.
+    ->placeholder($placeholder) // Set the placeholder for when no file has been uploaded. It supports localization strings.
+    ->removeUploadButtonPosition($position = 'left') // Set the position of the remove upload button.
+    ->uploadButtonPosition($position = 'right') // Set the position of the upload button.
+    ->uploadProgressIndicatorPosition($position = 'right') // Set the position of the upload progress indicator.
+    ->visibility($visibility = 'public'); // Set the visibility of uploaded files.
+```
+
+> Support for multiple file uploads is coming soon. For more information, please see our [Development Roadmap](/docs/roadmap).
+
+### Rich Editor {#fields-rich-editor}
+
+```php
+RichEditor::make($name)
+    ->attachmentDisk($disk) // Set a custom disk that uploaded attachments should be read from and written to.
+    ->attachmentDirectory($directory) // Set a custom directory that uploaded attachments should be written to.
+    ->autofocus() // Autofocus the field.
+    ->disableToolbarButtons($buttons = []) // Disable toolbar buttons. See below for options.
+    ->enableToolbarButtons($buttons = []) // Enable toolbar buttons. See below for options.
+    ->placeholder($placeholder); // Set the placeholder for when the field is empty. It supports localization strings.
+```
+
+#### Toolbar Buttons {#fields-rich-editor-toolbar-buttons}
+
+```
+attachFiles
+bold
+bullet
+code
+heading
+italic
+link
+number
+quote
+redo
+strike
+subheading
+title
+undo
+```
+
+### Select {#fields-select}
+
+```php
+Select::make($name)
+    ->autofocus() // Autofocus the field.
+    ->emptyOptionsMessage($message) // Set the message for when there are no options available to pick from. It supports localization strings.
+    ->noSearchResultsMessage($message) // Set the message for when there are no option search results. It supports localization strings.
+    ->options($options = []) // Set the key-value array of available options to pick from.
+    ->placeholder($placeholder); // Set the placeholder for when the field is empty. It supports localization strings.
+```
+
+> If you're looking to use a select for a `belongsTo()` relationship, please check out the [`BelongsToSelect` resource field](/docs/resources#relations-belongs-to).
+
+### Tags Input {#fields-tags-input}
+
+```php
+TagsInput::make($name)
+    ->autofocus() // Autofocus the field.
+    ->placeholder($placeholder) // Set the placeholder for when the new tag field is empty. It supports localization strings.
+    ->separator($separator = ','); // Set the separator that should be used between tags.
+```
+
+### Textarea {#fields-textarea}
+
+```php
+Textarea::make($name)
+    ->autocomplete($autocomplete = 'on') // Set up autocomplete for the field.
+    ->autofocus() // Autofocus the field.
+    ->disableAutocomplete() // Disable autocomplete for the field.
+    ->placeholder($placeholder); // Set the placeholder for when the field is empty. It supports localization strings.
+```
+
+### Text Input {#fields-text-input}
+
+```php
+TextInput::make($name)
+    ->autocomplete($autocomplete = 'on') // Set up autocomplete for the field.
+    ->autofocus() // Autofocus the field.
+    ->disableAutocomplete() // Disable autocomplete for the field.
+    ->email() // Require a valid email address to be provided.
+    ->max($max) // Set a maximum numeric value to be provided.
+    ->min($min) // Set a minimum numeric value to be provided.
+    ->numeric() // Require a numeric value to be provided.
+    ->password() // Obfuscate the field's value.
+    ->placeholder($placeholder) // Set the placeholder for when the field is empty. It supports localization strings.
+    ->tel() // Require a valid telephone number to be provided.
+    ->type($type = 'text') // Set the input's HTML type.
+    ->url(); // Require a valid URL to be provided.
+```
+
+## Validation {#validation}
+
+Filament provides a number of validation methods that can be applied to fields. Please refer to the [Laravel Validation docs](https://laravel.com/docs/validation#available-validation-rules) if you are unsure about any of these.
+
+```
+->acceptedFileTypes($types = []) // Accepts an array of mime types, file upload field only.
+->confirmed($field = '{field name}Confirmation') // Text-based fields only.
+->email() // Text input field only.
+->image() // File upload field only.
+->max($value) // Text input field only.
+->maxDate($date) // Date-based fields only.
+->maxLength($length) // Text-based fields only.
+->maxSize($size) // In kilobytes, file upload field only.
+->min($value) // Text input field only.
+->minDate($date) // Date-based fields only.
+->minLength($length) // Text-based fields only.
+->minSize($size) // In kilobytes, file upload field only.
+->nullable() // Applied to all fields by default.
+->numeric() // Text input field only.
+->required()
+->requiredWith()
+->same($field) // Text-based fields only.
+->tel() // Text input field only.
+->unique($table, $column = '{field name}', $exceptCurrentRecord = false)
+->url() // Text input field only.
+```
+
+You may apply additional custom validation rules to any field using the `rules()` method:
+```php
+Field($name)
+    ->rules(['alpha', 'ends_with:a']);
+```
+
+> Please note: when specifying **resource** field names in custom validation rules, you must prefix them with `record.`.
+
+## Layout {#layout}
+
+### Grid {#layout-grid}
+
+By default, form fields are stacked on top of each other in one column. To change this across the entire form, you may chain the `columns()` method onto the form object:
+```php
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+        ])
+        ->columns(2);
+}
+```
+
+Alternatively, you may customize the number of columns for a small part of the form using a Grid component:
+
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Grid::make([
+                // ...
+            ])->columns(2),
+        ]);
+}
+```
+
+### Sections {#layout-sections}
+
+You may want to separate your fields into sections, each with a heading and subheading. To do this, you can use a Section component:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Section::make(
+                'Heading',
+                'Subheading',
+                [
+                    // ...
+                ],
+            ),
+        ]);
+}
+```
+
+If you don't require a subheading, you may use the `schema()` method to declare the section schema late:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Section::make('Heading')
+                ->schema([
+                    // ...
+                ]),
+        ]);
+}
+```
+
+You may use the `columns()` method to easily create a [grid](#layout-grid) within the section:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Section::make(
+                'Heading',
+                'Subheading',
+                [
+                    // ...
+                ],
+            )->columns(2),
+        ]);
+}
+```
+
+### Fieldset {#layout-fieldset}
+
+You may want to group fields into into a Fieldset. Each fieldset has a label, a border, and a two-column grid:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Fieldset::make(
+                'Label',
+                [
+                    // ...
+                ],
+            ),
+        ]);
+}
+```
+
+You may use the `columns()` method to customize the number of columns in the fieldset:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Fieldset::make(
+                'Label',
+                [
+                    // ...
+                ],
+            )->columns(3),
+        ]);
+}
+```
+
+### Tabs {#layout-tabs}
+
+Some forms can be long and complex. You may want to use tabs to reduce the number that are available at once:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Tabs::make('Label')
+                ->tabs([
+                    Components\Tab::make(
+                        'First Tab',
+                        [
+                            // ...
+                        ],
+                    ),
+                    Components\Tab::make(
+                        'Second Tab',
+                        [
+                            // ...
+                        ],
+                    ),
+                ]),
+        ]);
+}
+```
+
+You may use the `columns()` method to easily create a [grid](#layout-grid) within the tab:
+```php
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            // ...
+            Components\Tabs::make('Label')
+                ->tabs([
+                    Components\Tab::make(
+                        'Tab',
+                        [
+                            // ...
+                        ],
+                    )->columns(2),
+                ]),
+        ]);
+}
+```
+
+## Context Customization {#context-customization} {#layout}
+
+You may customize forms based on the page they are used. To do this, you can chain the `only()` or `except()` methods onto any form component.
+```php
+use App\Filament\Resources\CustomerResource\Pages;
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            Components\TextInput::make('name')
+                ->required()
+                ->only(Pages\CreateCustomer::class),
+        ]);
+}
+```
+In this example, the `name` field will `only()` be displayed on the `CreateCustomer` page.
+
+```php
+use App\Filament\Resources\CustomerResource\Pages;
+use Filament\Resources\Forms\Components;
+use Filament\Resources\Forms\Form;
+
+public static function form(Form $form)
+{
+    return $form
+        ->schema([
+            Components\TextInput::make('name')
+                ->except(Pages\EditCustomer::class, fn ($field) => $field->required()),
+        ]);
+}
+```
+In this example, the `name` field will be required, `except()` on the `EditCustomer` page.
+
+This is an incredibly powerful pattern, and allows you to completely customize a form contextually by chaining as many methods as you wish to the callback.
