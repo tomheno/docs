@@ -148,6 +148,43 @@ For more information, please see the page on [Building Tables](/docs/tables).
 
 ## Authorization {#authorization}
 
+You may create roles for users of Filament that allow them to access specific resources. You may create a `Manager` role using:
+```php
+art make:filament-role Manager
+```
+
+Administrators will now be able to assign this role to any Filament user using the admin panel.
+
+To only allow users with the `Manager` role to access this resource, declare so in the static `authorization()` method:
+```php
+use App\Filament\Roles;
+
+public static function authorization()
+{
+    return [
+        Roles\Manager::allow(),
+    ];
+}
+```
+
+You may authorize as many roles as you wish.
+
+> Please note: administrators will always have full access to every resource in your admin panel.
+
+You may want to only deny users with the `Manager` role from accessing this resource. To do this, you may use the static `deny()` method instead:
+```php
+use App\Filament\Roles;
+
+public static function authorization()
+{
+    return [
+        Roles\Manager::deny(),
+    ];
+}
+```
+
+> Action-specific role authorization is coming soon. For more information, please see our [Development Roadmap](/docs/roadmap).
+
 ## Pages {#pages}
 
 Pages are classes that are associated with a resource. They are essentially [Laravel Livewire](https://laravel-livewire.com) components with custom integration utilities for use with Filament.

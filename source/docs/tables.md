@@ -71,7 +71,7 @@ Text::make($name)
     ->url($url); // Set URL callback that should be used to generate a URL to send the user to when this column is clicked.
 ```
 
-> Support for other column types is coming soon. For more information, please see our [Development Roadmap](/docs/roadmap).
+> Other column types are coming soon. For more information, please see our [Development Roadmap](/docs/roadmap).
 
 ## Filters {#filters}
 

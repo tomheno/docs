@@ -15,11 +15,11 @@ composer require filament/filament
 php artisan migrate
 ```
 
-Create a user account for your admin panel by running
+Create an administrator account for your admin panel by running
 ```
 php artisan make:filament-user
 ```
-and answering the input prompts.
+and answering the input prompts. Administrators have access to all areas of Filament, and are able to manage other users.
 
 Once you have a user account, you can sign in to the admin panel by visiting `/admin` in your browser.
 
