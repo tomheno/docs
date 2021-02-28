@@ -40,6 +40,7 @@ public static function table(Table $table)
         ])
         ->filters([
             Filter::make('individuals', fn ($query) => $query->where('type', 'individual')),
+            Filter::make('organizations', fn ($query) => $query->where('type', 'organization')),
         ]);
 }
 ```

@@ -38,7 +38,7 @@ This will create several files in the `app/Filament/Resources` directory:
 |   |   +-- ListCustomers.php
 ```
 
-Your new resource class lives in `CustomerResource.php`. Resource classes register [forms](#forms), [tables](#tables), [authorization](#authorization), and [pages](#pages) associated with that model.
+Your new resource class lives in `CustomerResource.php`. Resource classes register [forms](#forms), [tables](#tables), [authorization settings](#authorization), and [pages](#pages) associated with that model.
 
 The classes in the `Pages` directory are used to customize the pages in the admin panel that interact with your resource.
 
