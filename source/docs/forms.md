@@ -7,7 +7,6 @@ section: content
 
 # Building Forms
 
-- [Getting Started](#getting-started)
 - [Fields](#fields)
   - [Checkbox](#fields-checkbox)
   - [Date Picker](#fields-date-picker)
@@ -26,8 +25,6 @@ section: content
   - [Fieldset](#layout-fieldset)
   - [Tabs](#layout-tabs)
 - [Context Customization](#context-customization)
-
-## Getting Started {#getting-started}
 
 Filament comes with a powerful form builder which can be used to create intuitive, dynamic, and contextual forms in the admin panel.
 

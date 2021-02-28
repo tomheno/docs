@@ -7,13 +7,10 @@ section: content
 
 # Building Tables
 
-- [Getting Started](#getting-started)
 - [Columns](#columns)
   - [Text](#fields-text)
 - [Filters](#filters)
 - [Context Customization](#context-customization)
-
-## Getting Started {#getting-started}
 
 Filament includes a table builder which can be used to create interactive tables in the admin panel.
 

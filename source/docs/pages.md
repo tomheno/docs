@@ -7,11 +7,8 @@ section: content
 
 # Custom Pages
 
-- [Getting Started](#getting-started)
 - [Authorization](#authorization)
 - [Customization](#customization)
-
-## Getting Started {#getting-started}
 
 Filament allows you to create completely custom pages for the admin panel. To create a new page, you can use:
 ```

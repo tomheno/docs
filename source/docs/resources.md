@@ -7,7 +7,6 @@ section: content
 
 # Resources
 
-- [Getting Started](#getting-started)
 - [Forms](#forms)
 - [Relations](#relations)
   - [Belongs To](#relations-belongs-to)
@@ -19,11 +18,9 @@ section: content
   - [Customizing Default Pages](#pages-customization)
   - [Custom Pages](#pages-custom)
 
-Resources are static classes that describe how administrators should be able to interact with data from your app.
+Resources are static classes that describe how administrators should be able to interact with data from your app. They are associated with Eloquent models from your app.
 
-## Getting Started {#getting-started}
-
-Resources are associated with Eloquent models from your app. To create a resource for the `App\Models\Customer` model:
+To create a resource for the `App\Models\Customer` model:
 ```
 php artisan make:filament-resource Customer
 ```
@@ -41,6 +38,16 @@ This will create several files in the `app/Filament/Resources` directory:
 Your new resource class lives in `CustomerResource.php`. Resource classes register [forms](#forms), [tables](#tables), [authorization settings](#authorization), and [pages](#pages) associated with that model.
 
 The classes in the `Pages` directory are used to customize the pages in the admin panel that interact with your resource.
+
+By default, the model associated with your resource is guessed based on the class name of the resource. You may set the static `$model` property to disable this behaviour:
+```php
+public static $model = Customer::class;
+```
+
+A label for this resource is generated based on the name of the resource's model. It's used the navigation menu and to display breadcrumbs. You may customise it using the static `$label` property:
+```php
+public static $label = 'customer';
+```
 
 ## Forms {#forms}
 
