@@ -4,7 +4,7 @@
     <div class="relative">
         <a href="#main" class="sr-only">Skip to main content</a>
         <img src="/assets/media/bg-illustrations@2x.jpg" alt="Illustrations" class="absolute top-0 left-0 object-cover object-bottom w-full h-full opacity-20" />
-        <nav class="relative px-6 py-12 lg:py-24">
+        <nav class="relative px-6 py-12 font-normal lg:py-24">
             <ol class="relative flex justify-between max-w-screen-xl mx-auto">
                 <li class="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                     <a href="/" rel="home" class="transition-colors duration-200 hover:text-primary-700">
@@ -21,7 +21,7 @@
                         <x-icon-github class="w-7 h-7" />
                     </a>
                 </li>
-                <li><a href="/docs" class="font-mono transition-colors duration-200 hover:text-primary-700">Documentation</a></li>
+                <li><a href="/docs" class="transition-colors duration-200 hover:text-primary-700">Documentation</a></li>
             </ol>
         </nav>
         <div class="relative">

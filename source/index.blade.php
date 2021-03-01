@@ -140,7 +140,7 @@ return [
 </section>
 <section aria-labelledby="heading-authors" class="px-6 py-12 md:py-24">
     <div class="grid max-w-screen-lg grid-cols-1 gap-6 mx-auto lg:grid-cols-3 lg:gap-12">
-        <h2 id="heading-authors" class="text-3xl text-center lg:text-left text-primary-700 lg:text-4xl">Design &amp; development by</h2>
+        <h2 id="heading-authors" class="text-3xl text-center lg:text-left text-primary-700 lg:text-4xl">Design &amp; development</h2>
         <div class="grid grid-cols-2 gap-8 lg:col-span-2 md:gap-16">
             <x-author
                 name="Dan Harrin"

@@ -447,7 +447,7 @@ public static function form(Form $form)
 }
 ```
 
-## Context Customization {#context-customization} {#layout}
+## Context Customization {#context-customization}
 
 You may customize forms based on the page they are used. To do this, you can chain the `only()` or `except()` methods onto any form component.
 
