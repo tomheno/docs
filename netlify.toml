@@ -1,0 +1,18 @@
+[build]
+
+command = "npm run production"
+publish = "build_production"
+environment = { PHP_VERSION = "7.4" }
+
+# Redirect default Netlify subdomain to primary domain
+#[[redirects]]
+#  from = "https://filamentadmin.netlify.com/*"
+#  to = "https://filamentadmin.com/:splat"
+#  status = 301
+#  force = true
+
+#[[redirects]]
+#  from = "https://www.filamentadmin.com/*"
+#  to = "https://filamentadmin.com/:splat"
+#  status = 301
+#  force = true
