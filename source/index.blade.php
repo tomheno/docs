@@ -15,23 +15,31 @@
                 })"
                 class="relative overflow-hidden bg-gray-900 rounded shadow-lg md:rounded-lg"
             >
-                <video 
-                    muted
-                    loop
+                <video
                     x-ref="video"
                     @click="playing = false"
                 >
-                    <source src="/assets/media/fpo-screen-recording.mp4" type="video/mp4">
+                    <source src="/assets/media/video.mp4" type="video/mp4">
                 </video>
                 <button 
                     class="absolute inset-0 flex items-center justify-center transition-colors duration-200 bg-black rounded md:rounded-lg bg-opacity-20 text-primary-700 hover:text-primary-500"
                     x-show="playing === false"
                     @click="playing = true"
                 >
-                    <span>
-                        <span class="sr-only">Play Video</span>
-                        <span class="flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg">
-                            <x-icon-play class="w-10 h-10" />
+                    <img
+                        src="/assets/media/video-thumbnail.jpg"
+                    />
+
+                    <button 
+                        class="absolute inset-0 flex items-center justify-center transition-colors duration-200 bg-gray-900 rounded md:rounded-lg bg-opacity-20 text-primary-700 hover:text-primary-500"
+                        x-show="playing === false"
+                        @click="playing = true"
+                    >
+                        <span>
+                            <span class="sr-only">Play Video</span>
+                            <span class="flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg">
+                                <x-icon-play class="w-10 h-10" />
+                            </span>
                         </span>
                     </span>
                 </button>
@@ -95,14 +103,12 @@ public static function form(Form $form)
             Components\Grid::make([
                 Components\BelongsToSelect::make('customer_id')
                     ->relationship('customer', 'name')
-                    ->placeholder('Select a customer')
                     ->required(),
                 Components\DateTimePicker::make('deliver_at')
                     ->withoutSeconds(),
             ]),
             Components\FileUpload::make('invoice'),
-            Components\RichEditor::make('notes')
-                ->placeholder('Notes'),
+            Components\RichEditor::make('notes'),
         ]);
 }
 </x-slot>
