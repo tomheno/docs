@@ -13,9 +13,10 @@
                     }
                     
                 })"
-                class="relative overflow-hidden bg-gray-900 rounded shadow-lg md:rounded-lg"
+                class="relative overflow-hidden rounded shadow-lg md:rounded-lg"
             >
                 <video
+                    poster="/assets/media/video-thumbnail.jpg"
                     x-ref="video"
                     @click="playing = false"
                 >
@@ -26,21 +27,9 @@
                     x-show="playing === false"
                     @click="playing = true"
                 >
-                    <img
-                        src="/assets/media/video-thumbnail.jpg"
-                    />
-
-                    <button 
-                        class="absolute inset-0 flex items-center justify-center transition-colors duration-200 bg-gray-900 rounded md:rounded-lg bg-opacity-20 text-primary-700 hover:text-primary-500"
-                        x-show="playing === false"
-                        @click="playing = true"
-                    >
-                        <span>
-                            <span class="sr-only">Play Video</span>
-                            <span class="flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg">
-                                <x-icon-play class="w-10 h-10" />
-                            </span>
-                        </span>
+                    <span class="sr-only">Play Video</span>
+                    <span class="flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg">
+                        <x-icon-play class="w-10 h-10" />
                     </span>
                 </button>
             </div>
