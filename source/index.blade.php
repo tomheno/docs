@@ -151,7 +151,7 @@ public static function relations()
             <x-author
                 name="Dan Harrin"
                 avatar-url="https://avatars.githubusercontent.com/u/41773797?s=128&u=2ec7b5195d66c092c3c8cb66e5123b0ca9ccafd5&v=4"
-                twitter-handle="danharrin"
+                twitter-handle="danjharrin"
             />
 
             <x-author
