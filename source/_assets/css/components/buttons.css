@@ -1,0 +1,7 @@
+.btn {
+  @apply inline-block px-5 py-2 border border-current rounded-full leading-tight whitespace-nowrap text-sm font-mono !important;
+}
+
+.btn:hover {
+  @apply bg-white text-gray-700 !important;
+}

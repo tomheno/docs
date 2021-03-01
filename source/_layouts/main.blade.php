@@ -21,7 +21,10 @@
                         <x-icon-github class="w-7 h-7" />
                     </a>
                 </li>
-                <li><a href="/docs" class="transition-colors duration-200 hover:text-primary-700">Documentation</a></li>
+                <li><a href="/docs" class="transition-colors duration-200 hover:text-primary-700">
+                    <span class="hidden sm:inline">Documentation</span>
+                    <abbr title="Documentation" class="sm:hidden">Docs</abbr>
+                </a></li>
             </ol>
         </nav>
         <div class="relative">

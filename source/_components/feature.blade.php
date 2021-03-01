@@ -5,16 +5,16 @@
 
 <article {{ $attributes->merge(['class' => 'grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16']) }}>
     <div class="col-span-1">
-        <div class="max-w-prose mx-auto space-y-4">
+        <div class="mx-auto space-y-4 max-w-prose">
             <h3 class="text-2xl lg:text-3xl xl:text-4xl">{{ $title }}</h3>
-            <div class="space-y-2">
+            <div class="space-y-6 text-lg">
                 {{ $slot }}
             </div>
         </div>
     </div>
-    <div class="col-span-1 lg:col-span-2 space-y-4 xl:space-y-0">
+    <div class="col-span-1 space-y-4 lg:col-span-2 xl:space-y-0">
         @isset($image['src'])
-            <div class="rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-hidden rounded-lg shadow-lg">
                 <img src="{{ $image['src'] }}" alt="{{ $image['alt'] ?? $title }}" />
             </div>
         @endisset
