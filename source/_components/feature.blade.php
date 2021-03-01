@@ -20,7 +20,7 @@
         @endisset
         @isset ($code)
             <div class="flex">
-                <x-code-block class="flex-grow w-full max-w-prose mx-auto md:-mt-40">
+                <x-code-block class="flex-grow w-full max-w-3xl mx-auto md:-mt-36">
                     {{ $code }}
                 </x-code-block>
             </div>

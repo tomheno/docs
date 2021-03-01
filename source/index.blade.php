@@ -28,9 +28,7 @@
                     })"
                     class="relative overflow-hidden bg-gray-900 rounded shadow-lg md:rounded-lg"
                 >
-                    <video 
-                        muted
-                        loop
+                    <video
                         x-ref="video"
                         @click="playing = false"
                     >
@@ -65,21 +63,26 @@
                 <x-feature 
                     title="Tables" 
                     :image="[
-                        'src' => '/assets/media/resource-table@2x.jpg', 
-                        'alt' => 'Resource Page Index Table'
+                        'src' => '/assets/media/tables@2x.jpg',
+                        'alt' => 'Table'
                     ]"
                 >
 <x-slot name="code">
-public static function table($table)
+public static function table(Table $table)
 {
     return $table
         ->columns([
-            Tables\Columns\Text::make('title')
+            Columns\Text::make('name')
+                ->searchable()
                 ->sortable()
-                ->options(static::$titleOptions),
-        ])
-        ->filters([
-            Tables\Filter::make('Title'),
+                ->primary(),
+            Columns\Text::make('email')
+                ->searchable()
+                ->sortable()
+                ->url(fn ($customer) => "mailto:{$customer->email}"),
+            Columns\Text::make('birthday')
+                ->sortable()
+                ->date(),
         ]);
 }
 </x-slot>
@@ -90,21 +93,26 @@ public static function table($table)
                 <x-feature 
                     title="Forms" 
                     :image="[
-                        'src' => '/assets/media/resource-form@2x.jpg', 
-                        'alt' => 'Resource Edit Form'
+                        'src' => '/assets/media/forms@2x.jpg',
+                        'alt' => 'Form'
                     ]"
                 >
 <x-slot name="code">
-public static function form($form)
+public static function form(Form $form)
 {
     return $form
         ->schema([
-            Forms\Components\Select::make('customer_id')
-                ->relation('customer.name')
-                ->placeholder('Select a customer')
-                ->required(),
-            Forms\Components\Relation::make('products')
-                ->manager(RelationManagers\ProductsRelationManager::class),
+            Components\Grid::make([
+                Components\BelongsToSelect::make('customer_id')
+                    ->relationship('customer', 'name')
+                    ->placeholder('Select a customer')
+                    ->required(),
+                Components\DateTimePicker::make('deliver_at')
+                    ->withoutSeconds(),
+            ]),
+            Components\FileUpload::make('invoice'),
+            Components\RichEditor::make('notes')
+                ->placeholder('Notes'),
         ]);
 }
 </x-slot>
@@ -113,18 +121,17 @@ public static function form($form)
                 </x-feature>
 
                 <x-feature 
-                    title="Permissions" 
+                    title="Relation Managers"
                     :image="[
-                        'src' => '/assets/media/resource-permissions@2x.jpg', 
-                        'alt' => 'Resource Page Index Table'
+                        'src' => '/assets/media/relation-managers@2x.jpg',
+                        'alt' => 'Relation Manager'
                     ]"
                 >
 <x-slot name="code">
-public static function authorization()
+public static function relations()
 {
     return [
-        Roles\Guest::allow()->only(Pages\ListCustomers::class),
-        Roles\Admin::allow(),
+        RelationManagers\ProductsRelationManager::class,
     ];
 }
 </x-slot>
