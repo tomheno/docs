@@ -5,14 +5,14 @@
         <a href="#main" class="sr-only">Skip to main content</a>
         <img src="/assets/media/bg-illustrations@2x.jpg" alt="Illustrations" class="absolute top-0 left-0 object-cover object-bottom w-full h-full opacity-20" />
         <nav class="relative flex items-center justify-between max-w-screen-xl mx-auto">
-            <a href="/" rel="home" class="transition-opacity duration-200 hover:opacity-50">
+            <a href="/" rel="home" class="transition-colors duration-200 hover:text-gray-300">
                 <x-logo :alt="$page->siteName" class="h-auto w-36" />
             </a>
             <ul>
                 <li>
                     <a 
                         href="{{ $page->projectUrl }}" 
-                        class="transition-colors duration-200 hover:text-primary-700"
+                        class="transition-colors duration-200 hover:text-gray-300"
                         target="_blank"
                         rel="noreferrer noopener"
                     >
