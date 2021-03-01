@@ -23,8 +23,13 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;500&amp;family=JetBrains+Mono:ital@0;1&amp;display=swap">
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
         <script src="{{ mix('js/main.js', 'assets/build') }}" defer></script>
+        @stack('head')
     </head>
-    <body class="font-sans antialiased font-light text-gray-700 bg-white">
+    <body 
+        class="font-sans antialiased font-light text-gray-700 bg-white"
+        x-data="{ mobileMenuIsOpen: false }"
+        @keydown.window.escape="mobileMenuIsOpen = false" 
+    >
         <header role="banner">
             @yield('header')
         </header>

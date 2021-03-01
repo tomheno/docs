@@ -4,7 +4,17 @@
     <div class="relative px-6 py-8 text-white bg-secondary-900 md:py-16">
         <a href="#main" class="sr-only">Skip to main content</a>
         <img src="/assets/media/bg-illustrations@2x.jpg" alt="Illustrations" class="absolute top-0 left-0 object-cover object-bottom w-full h-full opacity-20" />
-        <nav class="relative flex items-center justify-between max-w-screen-xl mx-auto">
+        <nav class="relative flex items-center justify-between max-w-screen-xl mx-auto space-x-4 lg:space-x-0">
+            <button          
+                class="lg:hidden" 
+                aria-controls="main-menu"
+                aria-haspopup="true"
+                @click.prevent="mobileMenuIsOpen = !mobileMenuIsOpen" 
+                @click.away="mobileMenuIsOpen = false"
+            >
+                <x-icon-menu class="w-6 h-6" />
+                <span class="sr-only">Toggle Menu</span>
+            </button>
             <a href="/" rel="home" class="transition-colors duration-200 hover:text-gray-300">
                 <x-logo :alt="$page->siteName" class="h-auto w-36" />
             </a>
@@ -17,6 +27,7 @@
                         rel="noreferrer noopener"
                     >
                         <x-icon-github class="w-7 h-7" />
+                        <span class="sr-only">GitHub</span>
                     </a>
                 </li>
             </ul>
@@ -27,8 +38,14 @@
 @section('main')
     <div class="px-6 py-8 lg:py-16">
         <div class="grid max-w-screen-xl grid-cols-1 gap-6 mx-auto lg:grid-cols-10 lg:gap-12">
-            <nav class="relative lg:col-span-2">
-                <div class="py-6 space-y-6 md:py-12 lg:sticky lg:top-0">
+            <nav 
+                id="main-menu" 
+                aria-label="Main"
+                class="fixed inset-y-0 left-0 z-50 overflow-auto text-white transition-transform duration-500 ease-in-out transform bg-white bg-gray-900 shadow-lg lg:-translate-x-0 lg:text-current lg:bg-transparent md:shadow-none lg:relative lg:col-span-2"
+                :aria-hidden="mobileMenuIsOpen.toString()" 
+                :class="mobileMenuIsOpen ? '-translate-x-0' : '-translate-x-full'" 
+            >
+                <div class="p-6 space-y-6 lg:px-0 md:py-12 lg:sticky lg:top-0">
                     @foreach ($page->navigation as $section => $item)
                         <div class="space-y-3">
                             <h3 class="text-sm font-normal tracking-wider uppercase">
