@@ -26,3 +26,8 @@ section: content
 ## Authorization
 - Authorise access to specific resource pages.
 - Authorise access to specific actions on a page.
+
+## Widget Templates
+- Stats
+- Quick actions
+- Charts
