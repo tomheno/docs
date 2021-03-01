@@ -33,7 +33,7 @@
         </main>
         <footer role="contentinfo" class="relative px-6 py-8 text-center text-white bg-primary-900 md:py-16">
             <img src="/assets/media/bg-illustrations@2x.jpg" alt="Illustrations" class="absolute top-0 left-0 object-cover w-full h-full opacity-20" />
-            <div class="relative max-w-screen-sm mx-auto space-y-2 md:flex md:justify-between md:space-y-0 md:space-x-8">
+            <div class="relative max-w-screen-xl mx-auto space-y-2 md:flex md:justify-between md:space-y-0 md:space-x-8">
                 <p>
                     Built with 
                     <a href="https://jigsaw.tighten.co" target="_blank" rel="noopener noreferrer" class="font-medium underline transition-colors duration-200 hover:text-primary-200">Jigsaw</a> 
