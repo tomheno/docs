@@ -30,9 +30,9 @@
         <div class="relative">
             <div class="px-6 pb-32 md:pb-64">
                 <div class="max-w-screen-lg mx-auto space-y-5 text-center lg:space-y-10">
-                    <h1 class="text-4xl text-primary-700 md:text-5xl lg:text-6xl xl:text-7xl">{{ $page->siteDescription }}</h1>
+                    <h1 class="text-4xl text-primary-700 md:text-5xl lg:text-6xl xl:text-7xl">The elegant TALL stack admin panel for Laravel artisans.</h1>
                     <div class="mx-auto max-w-prose">
-                        <p class="sm:text-lg md:text-xl">Filament is a content management framework for rapidly building a beautiful administration interface designed for humans.</p>
+                        <p class="sm:text-lg md:text-xl">{{ $page->siteDescription }}</p>
                     </div>
                     <x-button-command command="composer require filament/filament" />
                 </div>
