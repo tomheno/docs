@@ -22,10 +22,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;500&amp;family=JetBrains+Mono:ital@0;1&amp;display=swap">
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-    </head>
-    <body class="text-white font-sans font-light antialiased">
-        @yield('body')
         <script src="{{ mix('js/main.js', 'assets/build') }}" defer></script>
-        <script src="{{ mix('js/prism.js', 'assets/build') }}" defer></script>
+    </head>
+    <body class="font-sans antialiased font-light text-white">
+        @yield('body')
     </body>
 </html>

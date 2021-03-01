@@ -9,16 +9,19 @@ section: content
 
 > Filament requires Laravel 8.x or higher, and PHP 7.4 or higher.
 
-Installation is very simple:
-```
+Installation:
+
+```bash
 composer require filament/filament
 php artisan migrate
 ```
 
 Create an administrator account for your admin panel by running
+
 ```
 php artisan make:filament-user
 ```
+
 and answering the input prompts. Administrators have access to all areas of Filament, and are able to manage other users.
 
 Once you have a user account, you can sign in to the admin panel by visiting `/admin` in your browser.
@@ -28,6 +31,7 @@ To start building your admin panel, [create a resource](/docs/resources).
 ## Configuration {#configuration}
 
 You may optionally publish the configuration file for Filament:
+
 ```
 php artisan vendor:publish --tag=filament-config
 ```
@@ -35,6 +39,7 @@ php artisan vendor:publish --tag=filament-config
 ## Upgrade Guide {#upgrade-guide}
 
 To upgrade Filament to the latest version, you must run the following commands:
+
 ```
 composer update
 php artisan migrate

@@ -3,34 +3,35 @@ title: Building Forms
 description:
 extends: _layouts.documentation
 section: content
+toc: |
+  - [Fields](#fields)
+      - [Checkbox](#fields-checkbox)
+      - [Date Picker](#fields-date-picker)
+      - [Date-time Picker](#fields-date-time-picker)
+      - [File Upload](#fields-file-upload)
+      - [Rich Editor](#fields-rich-editor)
+          - [Toolbar Buttons](#fields-rich-editor-toolbar-buttons)
+      - [Select](#fields-select)
+      - [Tags Input](#fields-tags-input)
+      - [Textarea](#fields-textarea)
+      - [Text Input](#fields-text-input)
+  - [Validation](#validation)
+  - [Layout](#layout)
+      - [Grid](#layout-grid)
+      - [Sections](#layout-sections)
+      - [Fieldset](#layout-fieldset)
+      - [Tabs](#layout-tabs)
+  - [Context Customization](#context-customization)
 ---
 
 # Building Forms
 
-- [Fields](#fields)
-  - [Checkbox](#fields-checkbox)
-  - [Date Picker](#fields-date-picker)
-  - [Date-time Picker](#fields-date-time-picker)
-  - [File Upload](#fields-file-upload)
-  - [Rich Editor](#fields-rich-editor)
-    - [Toolbar Buttons](#fields-rich-editor-toolbar-buttons)
-  - [Select](#fields-select)
-  - [Tags Input](#fields-tags-input)
-  - [Textarea](#fields-textarea)
-  - [Text Input](#fields-text-input)
-- [Validation](#validation)
-- [Layout](#layout)
-  - [Grid](#layout-grid)
-  - [Sections](#layout-sections)
-  - [Fieldset](#layout-fieldset)
-  - [Tabs](#layout-tabs)
-- [Context Customization](#context-customization)
-
-Filament comes with a powerful form builder which can be used to create intuitive, dynamic, and contextual forms in the admin panel.
+<p class="lg:text-2xl">Filament comes with a powerful form builder which can be used to create intuitive, dynamic, and contextual forms in the admin panel.</p>
 
 Forms have a schema, which is an array that contains many form components. The schema defines the form's [fields](#fields), their [validation rules](#validation), and their [layout](#layout) in the form.
 
 Here is an example form configuration for a `CustomerResource`:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -236,6 +237,7 @@ Filament provides a number of validation methods that can be applied to fields. 
 ```
 
 You may apply additional custom validation rules to any field using the `rules()` method:
+
 ```php
 Field($name)
     ->rules(['alpha', 'ends_with:a']);
@@ -248,6 +250,7 @@ Field($name)
 ### Grid {#layout-grid}
 
 By default, form fields are stacked on top of each other in one column. To change this across the entire form, you may chain the `columns()` method onto the form object:
+
 ```php
 use Filament\Resources\Forms\Form;
 
@@ -282,6 +285,7 @@ public static function form(Form $form)
 ### Sections {#layout-sections}
 
 You may want to separate your fields into sections, each with a heading and subheading. To do this, you can use a Section component:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -303,6 +307,7 @@ public static function form(Form $form)
 ```
 
 If you don't require a subheading, you may use the `schema()` method to declare the section schema late:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -321,6 +326,7 @@ public static function form(Form $form)
 ```
 
 You may use the `columns()` method to easily create a [grid](#layout-grid) within the section:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -344,6 +350,7 @@ public static function form(Form $form)
 ### Fieldset {#layout-fieldset}
 
 You may want to group fields into into a Fieldset. Each fieldset has a label, a border, and a two-column grid:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -364,6 +371,7 @@ public static function form(Form $form)
 ```
 
 You may use the `columns()` method to customize the number of columns in the fieldset:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -386,6 +394,7 @@ public static function form(Form $form)
 ### Tabs {#layout-tabs}
 
 Some forms can be long and complex. You may want to use tabs to reduce the number that are available at once:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -415,6 +424,7 @@ public static function form(Form $form)
 ```
 
 You may use the `columns()` method to easily create a [grid](#layout-grid) within the tab:
+
 ```php
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
@@ -440,6 +450,7 @@ public static function form(Form $form)
 ## Context Customization {#context-customization} {#layout}
 
 You may customize forms based on the page they are used. To do this, you can chain the `only()` or `except()` methods onto any form component.
+
 ```php
 use App\Filament\Resources\CustomerResource\Pages;
 use Filament\Resources\Forms\Components;
@@ -455,6 +466,7 @@ public static function form(Form $form)
         ]);
 }
 ```
+
 In this example, the `name` field will `only()` be displayed on the `CreateCustomer` page.
 
 ```php
@@ -471,6 +483,7 @@ public static function form(Form $form)
         ]);
 }
 ```
+
 In this example, the `name` field will be required, `except()` on the `EditCustomer` page.
 
 This is an incredibly powerful pattern, and allows you to completely customize a form contextually by chaining as many methods as you wish to the callback.

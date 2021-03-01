@@ -37,6 +37,39 @@ module.exports = {
         success: colors.emerald,
         danger: colors.red,
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            fontWeight: theme('fontWeight.light'),
+            color: theme('colors.gray.600'),
+            h1: {
+              fontWeight: theme('fontWeight.light'),
+              color: theme('colors.primary.700'),
+            },
+            h2: {
+              fontWeight: theme('fontWeight.normal'),
+            },
+            h3: {
+              fontWeight: theme('fontWeight.normal'),
+            },
+            a: {
+              color: theme('colors.primary.500'),
+              '&:hover': {
+                color: theme('colors.primary.700'),
+              },
+            },
+            blockquote: {
+              color: theme('colors.gray.700'),
+            },
+            code: {
+              fontWeight: theme('fontWeight.normal'),
+              backgroundColor: theme('colors.gray.100'),
+              borderRadius: theme('borderRadius.sm'),
+              padding: `${theme('spacing[0.5]')} theme('spacing.1')`,
+            },
+          },
+        },
+      }),
     },
   },
   variants: {

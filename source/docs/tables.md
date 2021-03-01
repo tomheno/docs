@@ -3,20 +3,21 @@ title: Building Tables
 description:
 extends: _layouts.documentation
 section: content
+toc: |
+  - [Columns](#columns)
+    - [Text](#fields-text)
+  - [Filters](#filters)
+  - [Context Customization](#context-customization)
 ---
 
 # Building Tables
 
-- [Columns](#columns)
-  - [Text](#fields-text)
-- [Filters](#filters)
-- [Context Customization](#context-customization)
-
-Filament includes a table builder which can be used to create interactive tables in the admin panel.
+<p class="lg:text-2xl">Filament includes a table builder which can be used to create interactive tables in the admin panel.</p>
 
 Tables have [columns](#columns) and [filters](#filters), which are defined in two methods on the table object.
 
 Here is an example table configuration for a `CustomerResource`:
+
 ```php
 use Filament\Resources\Tables\Columns;
 use Filament\Resources\Tables\Filter;
@@ -90,9 +91,10 @@ Filter::make($name, $callback = fn ($query) => $query)
 
 > Currently, filters are static and only one may be applied at a time. Parameter-based filters and support for applying multiple filters at once is coming soon. For more information, please see our [Development Roadmap](/docs/roadmap).
 
-## Context Customization {#context-customization} {#layout}
+## Context Customization {#context-customization}
 
 You may customize tables based on the page they are used. To do this, you can chain the `only()` or `except()` methods onto any column or filter.
+
 ```php
 use App\Filament\Resources\CustomerResource\Pages;
 use Filament\Resources\Tables\Filter;
@@ -107,6 +109,7 @@ public static function table(Table $table)
         ]);
 }
 ```
+
 In this example, the `individuals` filter will `only()` be available on the `ListCustomers` page.
 
 ```php
@@ -123,6 +126,7 @@ public static function table(Table $table)
         ]);
 }
 ```
+
 In this example, the `name` column will be primary, `except()` on the `ListCustomers` page.
 
 This is an incredibly powerful pattern, and allows you to completely customize a table contextually by chaining as many methods as you wish to the callback.

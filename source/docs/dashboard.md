@@ -7,8 +7,9 @@ section: content
 
 # Dashboard
 
-Filament allows you to build dynamic custom dashboard widgets very easily. To get started building a `Stats` widget:
-```
+<p class="lg:text-2xl">Filament allows you to build dynamic custom dashboard widgets very easily. To get started building a `Stats` widget:</p>
+
+```bash
 php artisan make:filament-widget Stats
 ```
 
