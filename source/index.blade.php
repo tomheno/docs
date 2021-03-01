@@ -136,16 +136,16 @@ public static function authorization()
     </div>
     <section aria-label="Testimonials" class="px-6 py-12 md:py-24 lg:py-32">
         <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
-            <x-blockquote 
-                quote="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
-                source="Ryan Chandler" 
+            <x-blockquote
+                quote="Filament is truly client friendly, can replace your CMS and will definitely be at the core of all my applications!"
+                source="Ryan Chandler"
                 avatar-url="https://avatars.githubusercontent.com/u/41837763?s=128&u=18d547d57f020af52983d194b2dc8a7626942af9&v=4"
                 twitter-handle="ryangjchandler"
             />
-   
-            <x-blockquote 
+
+            <x-blockquote
                 quote="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
-                source="Roni Estein" 
+                source="Roni Estein"
                 avatar-url="https://avatars.githubusercontent.com/u/8517475?s=128&v=4"
                 twitter-handle="roniestein"
             />
