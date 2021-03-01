@@ -52,14 +52,16 @@
     </section>
     <section aria-labelledby="heading-resources" class="px-6">
         <div class="max-w-screen-xl mx-auto space-y-12 lg:space-y-24 xl:space-y-32">
-            <div class="space-y-6 text-center">
+            <div class="space-y-12 text-center">
                 <h2 id="heading-resources" class="text-3xl lg:text-4xl xl:text-5xl">Resourceful by design.</h2>
+
                 <div class="space-y-8">
                     <div class="mx-auto max-w-prose">
                         <p class="sm:text-lg md:text-xl">Resource files tell Filament about how administrators will interact with your data. They provide a simple API to structure interactive tables, define complex forms and set up granular permissions for your users.</p>
                     </div>
                     <x-button-command command="php artisan make:filament-resource Customer" />
                 </div>
+
                 <x-feature 
                     title="Tables" 
                     :image="[
@@ -86,8 +88,7 @@ public static function table(Table $table)
         ]);
 }
 </x-slot>
-                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                <p>Build complex and interactive tables, complete with sort, search and filter functionalities, easily.</p>
             </x-feature>
 
                 <x-feature 
@@ -116,8 +117,8 @@ public static function form(Form $form)
         ]);
 }
 </x-slot>
-                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                <p>Craft intuitive forms using a wide range of field types, using our simple, class-based form builder.</p>
+                <p>Generate date pickers, searchable select menus, rich text editors and file upload fields with just one line of PHP.</p>
             </x-feature>
 
                 <x-feature 
@@ -135,14 +136,13 @@ public static function relations()
     ];
 }
 </x-slot>
-                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+                <p>Create, edit and delete related records without leaving the page, using a relation manager.</p>
             </x-feature>
         </div>   
     </section>
 </div>
 <section aria-label="Testimonials" class="px-6 py-12 text-white bg-gray-800 md:py-24 lg:py-32">
-    <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
+    <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-1">
         <x-blockquote
             quote="Filament is truly client friendly, can replace your CMS and will definitely be at the core of all my applications!"
             source="Ryan Chandler"
@@ -150,12 +150,12 @@ public static function relations()
             twitter-handle="ryangjchandler"
         />
 
-        <x-blockquote
-            quote="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
-            source="Roni Estein"
-            avatar-url="https://avatars.githubusercontent.com/u/8517475?s=128&v=4"
-            twitter-handle="roniestein"
-        />
+{{--        <x-blockquote--}}
+{{--            quote="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."--}}
+{{--            source="Roni Estein"--}}
+{{--            avatar-url="https://avatars.githubusercontent.com/u/8517475?s=128&v=4"--}}
+{{--            twitter-handle="roniestein"--}}
+{{--        />--}}
     </div>
 </section>
 <section aria-labelledby="heading-authors" class="px-6 py-12 md:py-24">

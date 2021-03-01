@@ -49,7 +49,7 @@
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            Github
+                            GitHub
                         </a>
                     </li>
                     <li aria-hidden="true">&bull;</li>
