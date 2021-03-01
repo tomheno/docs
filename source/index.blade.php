@@ -28,22 +28,10 @@
                     x-show="playing === false"
                     @click="playing = true"
                 >
-                    <video
-                        x-ref="video"
-                        @click="playing = false"
-                    >
-                        <source src="/assets/media/fpo-screen-recording.mp4" type="video/mp4">
-                    </video>
-                    <button 
-                        class="absolute inset-0 flex items-center justify-center transition-colors duration-200 bg-gray-900 rounded md:rounded-lg bg-opacity-20 text-primary-700 hover:text-primary-500"
-                        x-show="playing === false"
-                        @click="playing = true"
-                    >
-                        <span>
-                            <span class="sr-only">Play Video</span>
-                            <span class="flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg">
-                                <x-icon-play class="w-10 h-10" />
-                            </span>
+                    <span>
+                        <span class="sr-only">Play Video</span>
+                        <span class="flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-lg">
+                            <x-icon-play class="w-10 h-10" />
                         </span>
                     </span>
                 </button>
@@ -52,10 +40,10 @@
     </section>
     <section aria-labelledby="heading-resources" class="px-6">
         <div class="max-w-screen-xl mx-auto space-y-12 lg:space-y-24 xl:space-y-32">
-            <div class="space-y-12 text-center">
-                <h2 id="heading-resources" class="text-3xl lg:text-4xl xl:text-5xl">Resourceful by design.</h2>
+            <div class="space-y-12 lg:space-y-24">
+                <div class="space-y-8 text-center">
+                    <h2 id="heading-resources" class="text-3xl lg:text-4xl xl:text-5xl">Resourceful by design.</h2>
 
-                <div class="space-y-8">
                     <div class="mx-auto max-w-prose">
                         <p class="sm:text-lg md:text-xl">Resource files tell Filament about how administrators will interact with your data. They provide a simple API to structure interactive tables, define complex forms and set up granular permissions for your users.</p>
                     </div>
@@ -89,6 +77,7 @@ public static function table(Table $table)
 }
 </x-slot>
                 <p>Build complex and interactive tables, complete with sort, search and filter functionalities, easily.</p>
+                <a class="btn" href="/docs/resources/#tables">Learn More</a>
             </x-feature>
 
                 <x-feature 
@@ -119,6 +108,7 @@ public static function form(Form $form)
 </x-slot>
                 <p>Craft intuitive forms using a wide range of field types, using our simple, class-based form builder.</p>
                 <p>Generate date pickers, searchable select menus, rich text editors and file upload fields with just one line of PHP.</p>
+                <a class="btn" href="/docs/resources/#forms">Learn more</a>
             </x-feature>
 
                 <x-feature 
@@ -137,12 +127,13 @@ public static function relations()
 }
 </x-slot>
                 <p>Create, edit and delete related records without leaving the page, using a relation manager.</p>
+                <a class="btn" href="/docs/resources/#relations-has-many">Learn More</a>
             </x-feature>
         </div>   
     </section>
 </div>
 <section aria-label="Testimonials" class="px-6 py-12 text-white bg-gray-800 md:py-24 lg:py-32">
-    <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-1">
+    <div class="grid max-w-lg grid-cols-1 gap-16 mx-auto md:grid-cols-1">
         <x-blockquote
             quote="Filament is truly client friendly, can replace your CMS and will definitely be at the core of all my applications!"
             source="Ryan Chandler"
