@@ -23,7 +23,7 @@
                     <source src="/assets/media/video.mp4" type="video/mp4">
                 </video>
                 <button 
-                    class="absolute inset-0 flex items-center justify-center transition-colors duration-200 bg-black rounded md:rounded-lg bg-opacity-20 text-primary-700 hover:text-primary-500"
+                    class="absolute inset-0 flex items-center justify-center w-full h-full transition-colors duration-200 bg-black rounded md:rounded-lg bg-opacity-20 text-primary-700 hover:text-primary-500"
                     x-show="playing === false"
                     @click="playing = true"
                 >
