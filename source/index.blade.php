@@ -128,7 +128,7 @@ public static function relations()
     </section>
 </div>
 <section aria-label="Testimonials" class="px-6 py-12 text-white bg-gray-800 md:py-24 lg:py-32">
-    <div class="grid max-w-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
+    <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
         <x-blockquote
             quote="Filament is truly client friendly, can replace your CMS and will definitely be at the core of all my applications!"
             source="Ryan Chandler"
