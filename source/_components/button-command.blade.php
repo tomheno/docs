@@ -6,7 +6,7 @@
 <button 
     {{ $attributes->merge([
         'type' => 'button',
-        'class' => 'py-4 px-6 rounded bg-gray-800 text-sm inline-flex items-center space-x-2 group',
+        'class' => 'max-w-full py-4 px-6 rounded bg-gray-800 text-sm inline-flex items-center space-x-2 group',
         'x-data' => "{ command: '$command' }", 
         '@click' => '$clipboard(command)',
     ]) }}
