@@ -135,6 +135,7 @@ RichEditor::make($name)
     ->attachmentDisk($disk) // Set a custom disk that uploaded attachments should be read from and written to.
     ->attachmentDirectory($directory) // Set a custom directory that uploaded attachments should be written to.
     ->autofocus() // Autofocus the field.
+    ->disableAllToolbarButtons() // Disable all toolbar buttons.
     ->disableToolbarButtons($buttons = []) // Disable toolbar buttons. See below for options.
     ->enableToolbarButtons($buttons = []) // Enable toolbar buttons. See below for options.
     ->placeholder($placeholder); // Set the placeholder for when the field is empty. It supports localization strings.
