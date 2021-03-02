@@ -128,20 +128,20 @@ public static function relations()
     </section>
 </div>
 <section aria-label="Testimonials" class="px-6 py-12 text-white bg-gray-800 md:py-24 lg:py-32">
-    <div class="grid max-w-lg grid-cols-1 gap-16 mx-auto md:grid-cols-1">
+    <div class="grid max-w-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
         <x-blockquote
             quote="Filament is truly client friendly, can replace your CMS and will definitely be at the core of all my applications!"
             source="Ryan Chandler"
-            avatar-url="https://avatars.githubusercontent.com/u/41837763?s=128&u=18d547d57f020af52983d194b2dc8a7626942af9&v=4"
+            avatar-url="https://avatars.githubusercontent.com/u/41837763?s=128&v=4"
             twitter-handle="ryangjchandler"
         />
 
-{{--        <x-blockquote--}}
-{{--            quote="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."--}}
-{{--            source="Roni Estein"--}}
-{{--            avatar-url="https://avatars.githubusercontent.com/u/8517475?s=128&v=4"--}}
-{{--            twitter-handle="roniestein"--}}
-{{--        />--}}
+        <x-blockquote
+            quote="Filament is a great CMS solution for both technical and non-technical users, and the fluent API is a developer's dream!"
+            source="Lars Klopstra"
+            avatar-url="https://avatars.githubusercontent.com/u/25669876?s=128&v=4"
+            twitter-handle="larsklopstra"
+        />
     </div>
 </section>
 <section aria-labelledby="heading-authors" class="px-6 py-12 md:py-24">
