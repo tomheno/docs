@@ -15,6 +15,10 @@ section: content
 - Block-based page builder
 - Switch
 
+## Table Filters
+- Filter parameters.
+- Applying more than one filter at once.
+
 ## Additional Table Column Types
 
 - Boolean
