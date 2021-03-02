@@ -7,6 +7,9 @@ section: content
 
 # Development Roadmap
 
+- Customise default avatar provider.
+- Customise user model.
+
 ## Additional Form Field Types
 
 - Markdown editor
