@@ -1,7 +1,7 @@
 @extends('_layouts.base')
 
 @section('header')
-    <div class="relative px-6 py-8 text-white bg-secondary-900 md:py-16">
+    <div class="relative px-6 py-8 text-white bg-primary-900 md:py-16">
         <a href="#main" class="sr-only">Skip to main content</a>
         <img src="/assets/media/bg-illustrations@2x.jpg" alt="Illustrations" class="absolute top-0 left-0 object-cover object-bottom w-full h-full opacity-20" />
         <nav class="relative flex items-center justify-between max-w-screen-xl mx-auto space-x-4 lg:space-x-0">
