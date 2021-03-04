@@ -21,7 +21,7 @@ module.exports = {
             fontWeight: theme('fontWeight.light'),
             color: theme('colors.gray.600'),
             h1: {
-              fontWeight: theme('fontWeight.light'),
+              fontWeight: theme('fontWeight.medium'),
               color: theme('colors.primary.700'),
             },
             h2: {

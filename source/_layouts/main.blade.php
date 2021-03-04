@@ -30,7 +30,7 @@
         <div class="relative">
             <div class="px-6 pb-32 md:pb-64">
                 <div class="max-w-screen-lg mx-auto space-y-5 text-center lg:space-y-10">
-                    <h1 class="text-4xl text-secondary-600 md:text-5xl lg:text-6xl xl:text-7xl">The elegant TALL stack admin panel for Laravel artisans.</h1>
+                    <h1 class="text-4xl text-primary-700 font-medium md:text-5xl lg:text-6xl xl:text-7xl">The elegant TALL stack admin panel for Laravel artisans.</h1>
                     <div class="mx-auto max-w-prose">
                         <p class="sm:text-lg md:text-xl">{{ $page->siteDescription }}</p>
                     </div>
@@ -42,7 +42,7 @@
 @endsection
 
 @section('main')
-    <div class="py-12 space-y-12 text-white md:py-24 lg:py-32 bg-primary-900 md:space-y-24">
+    <div class="py-12 space-y-12 text-white md:py-24 lg:py-32 bg-primary-600 md:space-y-24">
         @yield('content')
     </div>
 @endsection
