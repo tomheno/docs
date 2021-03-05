@@ -130,10 +130,10 @@ public static function relations()
 <section aria-label="Testimonials" class="px-6 py-12 text-white bg-gray-800 md:py-24 lg:py-32">
     <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
         <x-blockquote
-            quote="Filament is truly client friendly, can replace your CMS and will definitely be at the core of all my applications!"
-            source="Ryan Chandler"
-            avatar-url="https://avatars.githubusercontent.com/u/41837763?s=128&v=4"
-            twitter-handle="ryangjchandler"
+            quote="Filament is the Swiss Army Knife dashboard for TALL stack applications. Just sit down, install and you'll have a full CMS in two shakes."
+            source="Jorge González"
+            avatar-url="https://avatars.githubusercontent.com/u/4632429?s=128&v=4"
+            twitter-handle="iksaku2"
         />
 
         <x-blockquote
@@ -145,19 +145,25 @@ public static function relations()
     </div>
 </section>
 <section aria-labelledby="heading-authors" class="px-6 py-12 md:py-24">
-    <div class="grid max-w-screen-lg grid-cols-1 gap-6 mx-auto lg:grid-cols-3 lg:gap-12">
+    <div class="grid max-w-5xl grid-cols-1 gap-6 mx-auto lg:grid-cols-4 lg:gap-12">
         <h2 id="heading-authors" class="text-3xl text-center lg:text-left text-primary-700 lg:text-4xl">Design &amp; development</h2>
-        <div class="grid grid-cols-2 gap-8 lg:col-span-2 md:gap-16">
+        <div class="grid sm:grid-cols-3 gap-4 lg:col-span-3 md:gap-12">
             <x-author
                 name="Dan Harrin"
-                avatar-url="https://avatars.githubusercontent.com/u/41773797?s=128&u=2ec7b5195d66c092c3c8cb66e5123b0ca9ccafd5&v=4"
+                avatar-url="https://avatars.githubusercontent.com/u/41773797?s=128&v=4"
                 twitter-handle="danjharrin"
             />
 
             <x-author
                 name="Ryan Scherler"
-                avatar-url="https://avatars.githubusercontent.com/u/881938?s=128&u=123ef56aaf15f3c02fc8b6669db8f64254cb1610&v=4"
+                avatar-url="https://avatars.githubusercontent.com/u/881938?s=128&v=4"
                 twitter-handle="ryanscherler"
+            />
+
+            <x-author
+                name="Ryan Chandler"
+                avatar-url="https://avatars.githubusercontent.com/u/41837763?s=128&v=4"
+                twitter-handle="ryangjchandler"
             />
         </div>
     </div>
