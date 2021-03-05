@@ -112,7 +112,7 @@ To create a relation manager, you can use:
 php artisan make:filament-relation-manager CustomerResource orders
 ```
 
-This will create a `app/Filament/Resources/CustomerResource/RelationManagers/OrdersRelationManager.php` file. This contains a class where you are able to define a [form](/docs/forms) and [table](/docs/tables) for your relation manager. The relation manager will interact with the `orders` relationship on your parent model.
+This will create a `CustomerResource/RelationManagers/OrdersRelationManager.php` file. This contains a class where you are able to define a [form](/docs/forms) and [table](/docs/tables) for your relation manager. The relation manager will interact with the `orders` relationship on your parent model.
 
 You must register the new relation manager in your resource's `relations()` method:
 

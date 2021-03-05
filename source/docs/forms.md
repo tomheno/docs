@@ -65,6 +65,7 @@ Field::make($name)
     ->columnSpan($span = 1) // On large devices, this sets the number of columns that the field should span in the form.
     ->default($default) // Sets the default value for this field.
     ->disabled($disabled = false) // Make the field read-only.
+    ->extraAttributes($attributes = []) // A key-value array of extra HTML attributes to pass to the field.
     ->id($id) // Set the HTML ID of the field, which is otherwise automatically generated based on its name.
     ->label($label); // Set custom label text for with the field, which is otherwise automatically generated based on its name. It supports localization strings.
 ```
@@ -188,8 +189,10 @@ TagsInput::make($name)
 Textarea::make($name)
     ->autocomplete($autocomplete = 'on') // Set up autocomplete for the field.
     ->autofocus() // Autofocus the field.
+    ->cols($cols) // The number of columns wide the textarea is.
     ->disableAutocomplete() // Disable autocomplete for the field.
     ->placeholder($placeholder); // Set the placeholder for when the field is empty. It supports localization strings.
+    ->rows($rows) // The number of rows tall the textarea is.
 ```
 
 ### Text Input {#fields-text-input}

@@ -58,6 +58,14 @@ Column::make($name)
     ->sortable(); // Allows the values in this column to be sorted.
 ```
 
+You set up columns that display results from a related model using dot syntax in its name:
+
+```php
+Column::make('customer.name');
+```
+
+This would check for a `customer` relationship on the parent model and output the related customer's name.
+
 ### Text {#columns-text}
 
 ```php
