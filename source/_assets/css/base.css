@@ -9,7 +9,7 @@ html {
  * ::selection selector: color, background, cursor, and outline.
  */
 ::selection {
-  @apply bg-secondary-700 text-white;
+  @apply bg-primary-700 text-white;
 }
 
 /**

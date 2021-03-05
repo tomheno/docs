@@ -42,7 +42,7 @@
 @endsection
 
 @section('main')
-    <div class="py-12 space-y-12 text-white md:py-24 lg:py-32 bg-primary-600 md:space-y-24">
+    <div class="py-12 space-y-12 text-white md:py-24 lg:py-32 bg-primary-800 md:space-y-24">
         @yield('content')
     </div>
 @endsection

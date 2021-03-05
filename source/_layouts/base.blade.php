@@ -36,7 +36,7 @@
         <main role="main">
             @yield('main')
         </main>
-        <footer role="contentinfo" class="relative px-6 py-8 text-center text-white bg-secondary-900 md:py-16">
+        <footer role="contentinfo" class="relative px-6 py-8 text-center text-white bg-primary-800 md:py-16">
             <img src="/assets/media/bg-illustrations@2x.jpg" alt="Illustrations" class="absolute top-0 left-0 object-cover w-full h-full opacity-20" />
             <div class="relative max-w-screen-xl mx-auto space-y-2 md:flex md:justify-between md:space-y-0 md:space-x-8">
                 <p>

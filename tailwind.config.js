@@ -10,8 +10,7 @@ module.exports = {
         mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
       },
       colors: {
-        primary: colors.teal,
-        secondary: colors.blue,
+        primary: colors.lightBlue,
         success: colors.emerald,
         danger: colors.rose,
       },
