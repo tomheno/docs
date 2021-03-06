@@ -4,10 +4,10 @@ description:
 extends: _layouts.documentation
 section: content
 toc: |
-- [Configuration](#configuration)
-- [Users](#users)
-- [Stubs](#stubs)
-- [Upgrade Guide](#upgrade-guide)
+  - [Configuration](#configuration)
+  - [Users](#users)
+  - [Stubs](#stubs)
+  - [Upgrade Guide](#upgrade-guide)
 ---
 
 # Getting Started
