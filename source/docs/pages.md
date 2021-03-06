@@ -14,7 +14,7 @@ toc: |
 
 To create a new page, you can use:
 
-```
+```bash
 php artisan make:filament-page Settings
 ```
 

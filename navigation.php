@@ -44,7 +44,12 @@ return [
             'Customization' => '/docs/pages#customization',
         ],
     ],
-    'Dashboard' => '/docs/dashboard',
+    'Dashboard' => [
+        'url' => '/docs/dashboard',
+        'children' => [
+            'Disabling the Default Widgets' => '/docs/dashboard#disabling-default-widgets',
+        ],
+    ],
     'Navigation' => '/docs/navigation',
     'Development Roadmap' => '/docs/roadmap',
 ];

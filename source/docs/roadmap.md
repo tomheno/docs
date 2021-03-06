@@ -7,8 +7,7 @@ section: content
 
 # Development Roadmap
 
-- Customise default avatar provider.
-- Customise user model.
+- Customize default avatar provider.
 
 ## Additional Form Field Types
 
@@ -29,7 +28,7 @@ section: content
 
 ## More Relation Types
 
-- `belongsToMany()` support for attaching existing records, detaching records without deleting them, and pivot table sorting.
+- Relation manager support for pivot table sorting.
 - Polymorphic select.
 - `hasOne()` select.
 

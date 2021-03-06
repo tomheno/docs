@@ -54,6 +54,8 @@ public static function form(Form $form)
 }
 ```
 
+> Please note: when building forms for resources, please ensure that you are using components within the `Filament\Resources\Forms\Components` namespace and not `Filament\Forms\Components`.
+
 ## Fields {#fields}
 
 Resource field classes are located in the `Filament\Resources\Forms\Components` namespace.
@@ -172,7 +174,7 @@ Select::make($name)
     ->placeholder($placeholder); // Set the placeholder for when the field is empty. It supports localization strings.
 ```
 
-> If you're looking to use a select for a `belongsTo()` relationship, please check out the [`BelongsToSelect` resource field](/docs/resources#relations-belongs-to).
+> If you're looking to use a select for a `belongsTo()` relationship, please check out the [`BelongsToSelect` resource field](/docs/resources#relations-single).
 
 ### Tags Input {#fields-tags-input}
 

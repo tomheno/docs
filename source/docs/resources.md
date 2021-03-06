@@ -5,10 +5,9 @@ extends: _layouts.documentation
 section: content
 toc: |
   - [Forms](#forms)
-    - [Relations](#relations)
-    - [Belongs To](#relations-belongs-to)
-    - [Has Many](#relations-has-many)
-    - [Belongs to Many](#relations-belongs-to-many)
+  - [Relations](#relations)
+    - [Managing Single Related Records](#relations-single)
+    - [Managing Multiple Related Records](#relations-multiple)
   - [Tables](#tables)
   - [Authorization](#authorization)
   - [Pages](#pages)
@@ -48,7 +47,7 @@ By default, the model associated with your resource is guessed based on the clas
 public static $model = Customer::class;
 ```
 
-A label for this resource is generated based on the name of the resource's model. It's used the navigation menu and to display breadcrumbs. You may customise it using the static `$label` property:
+A label for this resource is generated based on the name of the resource's model. It's used the navigation menu and to display breadcrumbs. You may customize it using the static `$label` property:
 
 ```php
 public static $label = 'customer';
@@ -76,7 +75,7 @@ For more information, please see the page on [Building Forms](/docs/forms).
 
 ## Relations {#relations}
 
-### Belongs To {#relations-belongs-to}
+### Managing Single Related Records {#relations-single}
 
 The `Filament\Resources\Forms\Components\BelongsToSelect` field can be used in resource form schemas to create a select element with options to search and select a related record. It has the same methods available as [`Filament\Resources\Forms\Components\Select`](/docs/forms#fields-select), and others to define the relationship and column name that should be used:
 
@@ -102,9 +101,9 @@ Components\BelongsToSelect::make('category_id')
 
 This example will only include featured categories in search results.
 
-### Has Many {#relations-has-many}
+### Managing Multiple Related Records {#relations-multiple}
 
-Relation managers are components that allow administrators to list, create, and edit related records without leaving the parent record's edit page. Resource classes contain a static `relations()` method that is used to register relation managers for your resource.
+Relation managers are components that allow administrators to list, create, attach, edit, detach and delete related records without leaving the parent record's edit page. Resource classes contain a static `relations()` method that is used to register relation managers for your resource.
 
 To create a relation manager, you can use:
 
@@ -113,6 +112,23 @@ php artisan make:filament-relation-manager CustomerResource orders
 ```
 
 This will create a `CustomerResource/RelationManagers/OrdersRelationManager.php` file. This contains a class where you are able to define a [form](/docs/forms) and [table](/docs/tables) for your relation manager. The relation manager will interact with the `orders` relationship on your parent model.
+
+You must set the primary column of related records using the static `$primaryColumn` property on your new relation manager class. The primary column is used to identify related records quickly. This could be a user's `name`, or a blog post's `title`.
+
+```php
+<?php
+
+namespace App\Filament\Resources\CategoryResource\RelationManagers;
+
+use Filament\Resources\RelationManager;
+
+class PostsRelationManager extends RelationManager
+{
+    public static $primaryColumn = 'title';
+
+    public static $relationship = 'posts';
+}
+```
 
 You must register the new relation manager in your resource's `relations()` method:
 
@@ -127,9 +143,7 @@ public static function relations()
 
 Once a table and form have been defined for the relation manager, visit the edit page of your resource to see it in action.
 
-### Belongs to Many {#relations-belongs-to-many}
-
-There is currently partial support for `belongsToMany()` relationships. You may use a [relation manager](#relations-has-many) to list, create, and edit related records. Soon, Filament will allow you to attach existing records to a relationship, and detach them without deleting the related record altogether. For more information, please see our [Development Roadmap](/docs/roadmap).
+`HasMany`, `BelongsToMany` and `MorphMany` relationships are currently fully supported by relation managers.
 
 ## Tables {#tables}
 
@@ -208,7 +222,7 @@ By default, resources are generated with three pages:
 
 - List has a [table](#tables) for displaying, searching and deleting resource records. From here, you are able to access the create and edit pages. It is routed to `/`.
 - Create has a [form](#forms) that is able to create a resource record. It is routed to `/create`.
-- Edit has a [form](#forms) that is able to update a resource record, along with the [relation managers](#relations-has-many) registered to your resource. It is routed to `/{record}/edit`.
+- Edit has a [form](#forms) that is able to update a resource record, along with the [relation managers](#relations-multiple) registered to your resource. It is routed to `/{record}/edit`.
 
 ### Customizing Default Pages {#pages-customization}
 
