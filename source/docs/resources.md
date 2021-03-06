@@ -145,6 +145,12 @@ Once a table and form have been defined for the relation manager, visit the edit
 
 `HasMany`, `BelongsToMany` and `MorphMany` relationships are currently fully supported by relation managers.
 
+`BelongsToMany` relation managers require an extra static `$inverseRelationship` property set on the class if the existing relationships deviate from traditional naming conventions:
+
+```php
+public static $inverseRelationship = 'products';
+```
+
 ## Tables {#tables}
 
 Resource classes contain a static `table()` method that is used to customize the table to list resource records.
