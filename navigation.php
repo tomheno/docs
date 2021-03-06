@@ -5,6 +5,8 @@ return [
         'url' => '/docs',
         'children' => [
             'Configuration' => '/docs#configuration',
+            'Users' => '/docs#users',
+            'Stubs' => '/docs#stubs',
             'Upgrade Guide' => '/docs#upgrade-guide',
         ],
     ],

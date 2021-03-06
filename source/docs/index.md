@@ -3,6 +3,11 @@ title: Getting Started
 description:
 extends: _layouts.documentation
 section: content
+toc: |
+- [Configuration](#configuration)
+- [Users](#users)
+- [Stubs](#stubs)
+- [Upgrade Guide](#upgrade-guide)
 ---
 
 # Getting Started
@@ -38,6 +43,79 @@ You may optionally publish the configuration file for Filament:
 php artisan vendor:publish --tag=filament-config
 ```
 
+> If you have published the configuration file for Filament, please ensure that you republish it when you upgrade.
+
+## Users {#users}
+
+By default, Filament includes its own authentication guard and users table that is completely separate from your app's users table. This enables you to get up and running with Filament at record speed.
+
+Some projects may choose to allow their app users access to Filament. In this case, they may customise the auth guard that Filament uses by [configuring](#configuration) `auth.guard` to the name of your default guard, typically `web`.
+
+The next step is to prepare your `User` model for use with Filament. Implement the `Filament\Models\Contracts\FilamentUser` interface, and apply the `Filament\Models\Concerns\IsFilamentUser` trait. These provide Filament with an API that it can use to interact with your existing user data:
+
+```php
+<?php
+
+namespace App\Models;
+
+use Filament\Models\Concerns\IsFilamentUser;
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable implements FilamentUser
+{
+    use IsFilamentUser;
+
+    // ...
+}
+```
+
+By default, all users will be able to sign in to Filament. To change this, you may set the static `$filamentUserColumn` property on your custom user class to the name of a boolean column in your database:
+
+```php
+public static $filamentUserColumn = 'is_filament_user'; // The name of a boolean column in your database.
+```
+
+Alternatively, you may override the `canAccessFilament()` on your custom user class, returning a boolean:
+
+```
+public function canAccessFilament()
+{
+    return $this->group === 'Filament Users';
+}
+```
+
+Filament implements authorization features in its default users table. Admin users are able to access all areas of Filament, and manage other users. Users may have roles, which are associated with certain permissions in your admin panel.
+
+To configure columns to granting users admin permissions and roles, you may override the static `$filamentAdminColumn` and `$filamentRolesColumn` properties on your class:
+
+```php
+public static $filamentUserColumn = 'is_filament_admin'; // The name of a boolean column in your database.
+
+public static $filamentRolesColumn = 'filament_roles'; // The name of a JSON column in your database.
+```
+
+To disable roles and admin features, just emit these properties from your class.
+
+Alternatively, you may specify custom logic for calculating if a user has admin permissions by overriding the `isFilamentAdmin()` method:
+
+```
+public function isFilamentAdmin()
+{
+    return $this->email === 'dan@danharrin.com';
+}
+```
+
+## Stubs {#stubs}
+
+Filament commands use stubs as templates when new files in your project. You may customise these stubs by publishing them to your app:
+
+```
+php artisan vendor:publish --tag=filament-stubs
+```
+
+> If you have published the stubs for Filament, please ensure that you republish them when you upgrade.
+
 ## Upgrade Guide {#upgrade-guide}
 
 To upgrade Filament to the latest version, you must run the following commands:
@@ -48,5 +126,3 @@ php artisan migrate
 php artisan livewire:discover
 php artisan view:clear
 ```
-
-> If you have [published the configuration file](#configuration) for Filament, please ensure that you republish it when you upgrade.
