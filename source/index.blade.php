@@ -130,7 +130,7 @@ public static function relations()
 <section aria-label="Testimonials" class="px-6 py-12 text-white bg-gray-800 md:py-24 lg:py-32">
     <div class="grid max-w-screen-lg grid-cols-1 gap-16 mx-auto md:grid-cols-2">
         <x-blockquote
-            quote="Filament is the Swiss Army Knife dashboard for TALL stack applications. Just sit down, install and you'll have a full CMS in two shakes."
+            quote="Filament is the Swiss Army Knife dashboard for TALL stack apps. Just sit down, install and you'll have a full CMS in two shakes."
             source="Jorge González"
             avatar-url="https://avatars.githubusercontent.com/u/4632429?s=128&v=4"
             twitter-handle="iksaku2"
