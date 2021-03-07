@@ -5,8 +5,8 @@ extends: _layouts.documentation
 section: content
 toc: |
   - [Columns](#columns)
-    - [Image](#fields-image)
-    - [Text](#fields-text)
+    - [Image](#columns-image)
+    - [Text](#columns-text)
   - [Filters](#filters)
   - [Context Customization](#context-customization)
 ---
