@@ -5,6 +5,7 @@ extends: _layouts.documentation
 section: content
 toc: |
   - [Columns](#columns)
+    - [Image](#fields-image)
     - [Text](#fields-text)
   - [Filters](#filters)
   - [Context Customization](#context-customization)
@@ -65,6 +66,17 @@ Column::make('customer.name');
 ```
 
 This would check for a `customer` relationship on the parent model and output the related customer's name.
+
+### Image {#columns-image}
+
+```php
+Image::make($name)
+    ->disk($disk) // Set a custom disk that images should be read from.
+    ->height($height = 40) // Set the height of the image in pixels.
+    ->rounded() // Make the image preview fully rounded.
+    ->size($size) // Set the height and width of the image in pixels.
+    ->width($width); // Set the width of the image in pixels.
+```
 
 ### Text {#columns-text}
 
