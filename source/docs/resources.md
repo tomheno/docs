@@ -181,7 +181,7 @@ For more information, please see the page on [Building Tables](/docs/tables).
 You may create roles for users of Filament that allow them to access specific resources. You may create a `Manager` role using:
 
 ```php
-art make:filament-role Manager
+php artisan make:filament-role Manager
 ```
 
 Administrators will now be able to assign this role to any Filament user using the admin panel.

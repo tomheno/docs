@@ -27,7 +27,7 @@ Page classes are essentially [Laravel Livewire](https://laravel-livewire.com) co
 You may create roles for users of Filament that allow them to access specific pages. You may create a `Manager` role using:
 
 ```php
-art make:filament-role Manager
+php artisan make:filament-role Manager
 ```
 
 Administrators will now be able to assign this role to any Filament user using the admin panel.
