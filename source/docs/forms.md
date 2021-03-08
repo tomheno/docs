@@ -71,7 +71,7 @@ Field::make($name)
     ->id($id) // Set the HTML ID of the field, which is otherwise automatically generated based on its name.
     ->label($label) // Set custom label text for with the field, which is otherwise automatically generated based on its name. It supports localization strings.
     ->hint($hint) // Sets an optional short message adjacent to the label (supports markdown)
-    ->helpText($helpText);  // Sets an optional message below the field (supports markdown)
+    ->helpMessage($helpText);  // Sets an optional message below the field (supports markdown)
 ```
 
 ### Checkbox {#fields-checkbox}
