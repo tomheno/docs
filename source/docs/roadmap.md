@@ -7,8 +7,6 @@ section: content
 
 # Development Roadmap
 
-- Customize default avatar provider.
-
 ## Additional Form Field Types
 
 - Markdown editor
@@ -23,7 +21,6 @@ section: content
 
 ## Additional Table Column Types
 
-- Boolean
 - Tags
 
 ## More Relation Types
@@ -31,11 +28,6 @@ section: content
 - Relation manager support for pivot table sorting.
 - Polymorphic select.
 - `hasOne()` select.
-
-## Authorization
-
-- Authorise access to specific resource pages.
-- Authorise access to specific actions on a page.
 
 ## Widget Templates
 
