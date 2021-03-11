@@ -6,6 +6,7 @@ section: content
 toc: |
   - [Authorization](#authorization)
   - [Customization](#customization)
+    -  [Hide the page in the navigation menu](#hide-the-page-from-the-navigation-menu)
 ---
 
 # Custom Pages
@@ -74,4 +75,12 @@ public static $label = 'Custom Navigation Label';
 public static $slug = 'custom-url-slug';
 
 public static $title = 'Custom Page Title';
+```
+### Hide the page in the navigation {#hide-the-page-from-the-navigation-menu}
+Filament will automatically add your page in the navigation menu. You can override this behavior setting the static navigationItems function of your page class as empty :
+```php
+public static function navigationItems()
+{
+    return []; 
+}
 ```
